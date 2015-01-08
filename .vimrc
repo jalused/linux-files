@@ -76,6 +76,16 @@ nmap L <C-w>l
 nmap W <C-w>w
 map <F5> :NERDTree<cr><c-w>p
 
+"括号自动补全
+inoremap ( ()<Esc>i
+inoremap [ []<Esc>i
+inoremap { {}<Esc>i
+inoremap < <><Esc>i
+
+"引号自动补全
+inoremap " ""<Esc>i
+inoremap ' ''<Esc>i
+
 "property of taglist
 let Tlist_Show_One_File = 1
 let Tlist_Exit_OnlyWindow = 1
