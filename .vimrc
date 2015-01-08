@@ -74,13 +74,14 @@ nmap H <C-w>h
 nmap K <C-w>k
 nmap L <C-w>l
 nmap W <C-w>w
-map <F5> :NERDTree<cr><c-w>p
-
+map <F5> :NERDTree<cr>
+imap <C-l> <Esc>la
+imap <C-h> <Esc>ha
 "括号自动补全
 inoremap ( ()<Esc>i
 inoremap [ []<Esc>i
 inoremap { {}<Esc>i
-inoremap < <><Esc>i
+""inoremap < <><Esc>i
 
 "引号自动补全
 inoremap " ""<Esc>i
