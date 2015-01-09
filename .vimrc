@@ -35,7 +35,6 @@ set incsearch
 set hlsearch
 "替换时所有的行内匹配都被替换，不是只有第一个
 set gdefault
-
 "备份设置
 "修改文件后自动备份，加“~”后缀
 if has("vms")
@@ -52,13 +51,15 @@ set ruler
 "设置总是显示状态栏
 set laststatus=2
 
-"powerline{
- set guifont=PowerlineSymbols\ for\ Powerline
- set nocompatible
- set t_Co=256
- set encoding=utf-8
- let g:Powerline_symbols = 'fancy'
-"}
+"powerline
+set guifont=PowerlineSymbols\ for\ Powerline
+"backspace"
+set backspace=indent,eol,start
+set nocompatible
+set t_Co=256
+set encoding=utf-8
+let g:Powerline_symbols = 'fancy'
+
 "代码折叠
 set foldmethod=syntax
 set foldlevel=100
@@ -76,12 +77,15 @@ nmap L <C-w>l
 nmap W <C-w>w
 map <F5> :NERDTree<cr>
 imap <C-l> <Esc>la
-imap <C-h> <Esc>ha
+""imap <C-h> <Esc>j
+""map <C-s> :wa<cr>
+map <C-c> :wqa<cr>
 "括号自动补全
 inoremap ( ()<Esc>i
+
 inoremap [ []<Esc>i
 inoremap { {}<Esc>i
-""inoremap < <><Esc>i
+inoremap < <><Esc>i
 
 "引号自动补全
 inoremap " ""<Esc>i
