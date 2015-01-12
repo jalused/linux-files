@@ -3,7 +3,7 @@
 "Date: 2014-10-10
 
 "显示行号
-"set number
+set number
 "检测文件类型
 filetype on
 filetype indent on
@@ -37,11 +37,11 @@ set hlsearch
 set gdefault
 "备份设置
 "修改文件后自动备份，加“~”后缀
-if has("vms")
-set nobackup
-else
-set backup
-endif
+""if has("vms")
+""set nobackup
+""else
+""set backup
+""endif
 
 "状态栏相关设置
 "设置右下角显示光标位置的状态行
@@ -75,8 +75,14 @@ nmap H <C-w>h
 nmap K <C-w>k
 nmap L <C-w>l
 nmap W <C-w>w
+nmap ff <C-f>
+vmap ff <C-f>
+nmap bb <C-b>
+vmap bb <C-b>
+nmap oo <C-o>
 map <F5> :NERDTree<cr>
-imap <C-l> <Esc>la
+""imap <C-l> <Esc>la
+imap ,, <Esc>la
 ""imap <C-h> <Esc>j
 ""map <C-s> :wa<cr>
 map <C-c> :wqa<cr>
@@ -87,6 +93,8 @@ inoremap [ []<Esc>i
 inoremap { {}<Esc>i
 inoremap < <><Esc>i
 
+""let leader = "-"
+:nnoremap <leader>d <C-b>
 "引号自动补全
 inoremap " ""<Esc>i
 inoremap ' ''<Esc>i
