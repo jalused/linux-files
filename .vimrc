@@ -86,6 +86,31 @@ imap ,, <Esc>la
 ""imap <C-h> <Esc>j
 ""map <C-s> :wa<cr>
 map <C-c> :wqa<cr>
+"映射空格加分号为右shift，不知道如何直接映射，所以采取暴力方法"
+map  ;q Q
+map  ;w W
+map  ;e E
+map  ;r R
+map  ;t T
+map  ;a A
+map  ;s S
+map  ;d D
+map  ;f F
+map  ;df ;<Esc>
+map  ;g G
+map  ;z Z
+map  ;x X
+map  ;c C
+map  ;v V
+map  ;b B
+map  ;` ~
+map  ;1 !
+map  ;2 @
+map  ;3 #
+map  ;4 $
+map  ;4 $
+map  ;5 %
+nnore map z a<BS><Esc>
 "括号自动补全
 inoremap ( ()<Esc>i
 
@@ -97,7 +122,7 @@ inoremap < <><Esc>i
 :nnoremap <leader>d <C-b>
 "引号自动补全
 inoremap " ""<Esc>i
-inoremap ' ''<Esc>i
+""inoremap ' ''<Esc>i
 
 "property of taglist
 let Tlist_Show_One_File = 1
