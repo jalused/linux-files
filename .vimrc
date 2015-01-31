@@ -54,7 +54,7 @@ set laststatus=2
 "powerline
 set guifont=PowerlineSymbols\ for\ Powerline
 "backspace"
-set backspace=indent,eol,start
+""set backspace=indent,eol,start
 set nocompatible
 set t_Co=256
 set encoding=utf-8
@@ -68,23 +68,22 @@ set foldlevel=100
 map  df <Esc>
 omap df <Esc>
 imap df <Esc>
-nmap df <Esc>
-vmap df <Esc>
+cmap df <Esc> 
 nmap J <C-w>j
 nmap H <C-w>h
 nmap K <C-w>k
 nmap L <C-w>l
 nmap W <C-w>w
-nmap ff <C-f>
-vmap ff <C-f>
-nmap bb <C-b>
-vmap bb <C-b>
+nmap F <C-f>
+vmap F <C-f>
+nmap B <C-b>
+vmap B <C-b>
 nmap oo <C-o>
+nmap vv <C-v>
 map <F5> :NERDTree<cr>
 ""imap <C-l> <Esc>la
 imap ,, <Esc>la
 ""imap <C-h> <Esc>j
-""map <C-s> :wa<cr>
 map <C-c> :wqa<cr>
 "映射空格加分号为右shift，不知道如何直接映射，所以采取暴力方法"
 map  ;q Q
@@ -110,7 +109,53 @@ map  ;3 #
 map  ;4 $
 map  ;4 $
 map  ;5 %
-nnore map z a<BS><Esc>
+imap  ;q Q
+imap  ;w W
+imap  ;e E
+imap  ;r R
+imap  ;t T
+imap  ;a A
+imap  ;s S
+imap  ;d D
+imap  ;f F
+imap  ;df ;<Esc>
+imap  ;g G
+imap  ;z Z
+imap  ;x X
+imap  ;c C
+imap  ;v V
+imap  ;b B
+imap  ;` ~
+imap  ;1 !
+imap  ;2 @
+imap  ;3 #
+imap  ;4 $
+imap  ;4 $
+imap  ;5 %
+cmap  ;q Q
+cmap  ;w W
+cmap  ;e E
+cmap  ;r R
+cmap  ;t T
+cmap  ;a A
+cmap  ;s S
+cmap  ;d D
+cmap  ;f F
+cmap  ;df ;<Esc>
+cmap  ;g G
+cmap  ;z Z
+cmap  ;x X
+cmap  ;c C
+cmap  ;v V
+cmap  ;b B
+cmap  ;` ~
+cmap  ;1 !
+cmap  ;2 @
+cmap  ;3 #
+cmap  ;4 $
+cmap  ;4 $
+cmap  ;5 %
+""nnoremap z xh
 "括号自动补全
 inoremap ( ()<Esc>i
 
@@ -138,3 +183,9 @@ set csprg=/usr/local/bin/cscope
 "property of supertab
 "let g:SuperTabDefaultCompletionType = "context"
 
+"properties of matlab"
+source $VIMRUNTIME/macros/matchit.vim
+""autocmd BufEnter *.m compiler mlint
+"auto fold"
+""autocmd FileType c,cpp  
+set foldmethod=indent
