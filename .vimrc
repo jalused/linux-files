@@ -161,7 +161,7 @@ inoremap ( ()<Esc>i
 
 inoremap [ []<Esc>i
 inoremap { {}<Esc>i
-inoremap < <><Esc>i
+""inoremap < <><Esc>i
 
 ""let leader = "-"
 :nnoremap <leader>d <C-b>
