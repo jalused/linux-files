@@ -80,6 +80,7 @@ nmap B <C-b>
 vmap B <C-b>
 nmap oo <C-o>
 nmap vv <C-v>
+nmap z xh
 map <F5> :NERDTree<cr>
 ""imap <C-l> <Esc>la
 imap ,, <Esc>la
