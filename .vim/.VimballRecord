@@ -1,1 +1,3 @@
 supertab.vmb: call delete('/home/jiangliang/.vim/doc/supertab.txt')|call delete('/home/jiangliang/.vim/plugin/supertab.vim')
+supertab.vmb: call delete('/home/jiangliang/.vim/doc/supertab.txt')|call delete('/home/jiangliang/.vim/plugin/supertab.vim')
+supertab.vmb: call delete('/home/jiangliang/.vim/doc/supertab.txt')|call delete('/home/jiangliang/.vim/plugin/supertab.vim')

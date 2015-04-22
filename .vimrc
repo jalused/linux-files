@@ -2,17 +2,33 @@
 "Author: Liang Jiang
 "Date: 2014-10-10
 
+let mapleader = " "
+""将 pathogen 自身也置于独立目录中，需指定其路径 
+runtime bundle/pathogen/autoload/pathogen.vim
+""运行 pathogen
+execute pathogen#infect()
+
 "显示行号
 set number
 "检测文件类型
 filetype on
 filetype indent on
+filetype plugin on
 "记录历史的行数
 set history=1000
 "背景颜色为黑色
 set background=dark
+""colorscheme phd
+""colorscheme molokai
+""colorscheme solarized
+
+"禁止光标闪烁"
+set gcr=a:block-blinkon0
 "语法高亮
 syntax on
+"高亮当前行号"
+""set cursorline
+""set cursorcolumn
 "缩进与智能缩进
 set autoindent
 set cindent
@@ -21,6 +37,7 @@ set smartindent
 set expandtab 
 set tabstop=4
 set shiftwidth=4
+set softtabstop=4
 "设置匹配模式，括号匹配等
 set showmatch
 "去除Vim的GUI版本的toolbar
@@ -61,31 +78,31 @@ set encoding=utf-8
 let g:Powerline_symbols = 'fancy'
 
 "代码折叠
-set foldmethod=syntax
+set foldmethod=indent
 set foldlevel=100
 
 "设置快捷键
-map  df <Esc>
-omap df <Esc>
-imap df <Esc>
-cmap df <Esc> 
-nmap J <C-w>j
-nmap H <C-w>h
-nmap K <C-w>k
-nmap L <C-w>l
-nmap W <C-w>w
-nmap F <C-f>
-vmap F <C-f>
-nmap B <C-b>
-vmap B <C-b>
-nmap oo <C-o>
-nmap vv <C-v>
-nmap z xh
+map  <Leader>d <Esc>
+omap <Leader>d <Esc>
+imap <Leader>d <Esc>
+cmap <Leader>d <Esc> 
+nmap <Leader>j <C-w>j
+nmap <Leader>h <C-w>h
+nmap <Leader>k <C-w>k
+nmap <Leader>l <C-w>l
+""nmap <Leader>W <C-w>w
+nmap <Leader>f <C-f>
+vmap <Leader>f <C-f>
+nmap <Leader>b <C-b>
+vmap <Leader>B <C-b>
+nmap <Leader>o <C-o>
+nmap <Leader>v <C-v>
+""nmap z xh
 map <F5> :NERDTree<cr>
 ""imap <C-l> <Esc>la
 imap ,, <Esc>la
 ""imap <C-h> <Esc>j
-map <C-c> :wqa<cr>
+""map <C-c> :wqa<cr>
 "映射空格加分号为右shift，不知道如何直接映射，所以采取暴力方法"
 map  ;q Q
 map  ;w W
@@ -96,7 +113,7 @@ map  ;a A
 map  ;s S
 map  ;d D
 map  ;f F
-map  ;df ;<Esc>
+""map  ;df ;<Esc>
 map  ;g G
 map  ;z Z
 map  ;x X
@@ -119,7 +136,7 @@ imap  ;a A
 imap  ;s S
 imap  ;d D
 imap  ;f F
-imap  ;df ;<Esc>
+""imap  ;df ;<Esc>
 imap  ;g G
 imap  ;z Z
 imap  ;x X
@@ -142,7 +159,7 @@ cmap  ;a A
 cmap  ;s S
 cmap  ;d D
 cmap  ;f F
-cmap  ;df ;<Esc>
+""cmap  ;df ;<Esc>
 cmap  ;g G
 cmap  ;z Z
 cmap  ;x X
@@ -164,8 +181,7 @@ inoremap [ []<Esc>i
 inoremap { {}<Esc>i
 ""inoremap < <><Esc>i
 
-""let leader = "-"
-:nnoremap <leader>d <C-b>
+"":nnoremap <leader>d <C-b>
 "引号自动补全
 inoremap " ""<Esc>i
 ""inoremap ' ''<Esc>i
@@ -189,4 +205,13 @@ source $VIMRUNTIME/macros/matchit.vim
 ""autocmd BufEnter *.m compiler mlint
 "auto fold"
 ""autocmd FileType c,cpp  
-set foldmethod=indent
+"Leader shortcut"
+nmap <Leader>w :wa<cr>
+nmap <Leader>q :wq<cr>
+nmap <Leader>qa :wqa<cr>
+nmap <Leader>q! :qa!<cr>
+"indent-guide"
+"" 从第二层开始可视化显示缩进
+let g:indent_guides_start_level=2
+" 色块宽度
+let g:indent_guides_guide_size=1
