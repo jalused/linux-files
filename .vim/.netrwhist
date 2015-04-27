@@ -1,10 +1,3 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =8
-let g:netrw_dirhist_1='/home/jiangliang/.vim/nerdtree/autoload/nerdtree'
-let g:netrw_dirhist_2='/home/jiangliang/w2vexperiment/w2vjl-6/result_accuracy_sbd_data'
-let g:netrw_dirhist_3='/home/jiangliang/w2vexperiment/w2vjl-2/result_accuracy_sbd_data'
-let g:netrw_dirhist_4='/home/jiangliang/w2vexperiment/w2vjl-6-rand-600'
-let g:netrw_dirhist_5='/home/jiangliang/w2vexperiment/w2vjl/result_accuracy_sbd_data'
-let g:netrw_dirhist_6='/home/jiangliang/w2vexperiment/w2vjl-6-rand-200/result_accuracy_sbd_data'
-let g:netrw_dirhist_7='/home/jiangliang/w2vexperiment/w2vjl-6/result_accuracy_sbd_data'
-let g:netrw_dirhist_8='/home/jiangliang/w2vexperiment/w2vjl_bigdataset0.6'
+let g:netrw_dirhist_cnt =1
+let g:netrw_dirhist_1='/home/jiangliang/software/tmux-1.9a'

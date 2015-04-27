@@ -2,7 +2,7 @@
 "Author: Liang Jiang
 "Date: 2014-10-10
 
-let mapleader = " "
+let mapleader = ","
 ""将 pathogen 自身也置于独立目录中，需指定其路径 
 runtime bundle/pathogen/autoload/pathogen.vim
 ""运行 pathogen
@@ -82,10 +82,18 @@ set foldmethod=indent
 set foldlevel=100
 
 "设置快捷键
-map  <Leader>d <Esc>
-omap <Leader>d <Esc>
-imap <Leader>d <Esc>
-cmap <Leader>d <Esc> 
+""map  <Leader>d <Esc>
+""omap <Leader>d <Esc>
+""imap <Leader>d <Esc>
+""cmap <Leader>d <Esc> 
+nmap  J <C-w>j
+nmap  H <C-w>h
+nmap  K <C-w>k
+nmap  L <C-w>l
+map  df <Esc>
+omap df <Esc>
+imap df <Esc>
+cmap df <Esc> 
 nmap <Leader>j <C-w>j
 nmap <Leader>h <C-w>h
 nmap <Leader>k <C-w>k
@@ -96,7 +104,9 @@ vmap <Leader>f <C-f>
 nmap <Leader>b <C-b>
 vmap <Leader>B <C-b>
 nmap <Leader>o <C-o>
+nmap oo <C-o>
 nmap <Leader>v <C-v>
+nmap vv <C-v>
 ""nmap z xh
 map <F5> :NERDTree<cr>
 ""imap <C-l> <Esc>la
@@ -113,7 +123,7 @@ map  ;a A
 map  ;s S
 map  ;d D
 map  ;f F
-""map  ;df ;<Esc>
+map  ;df ;<Esc>
 map  ;g G
 map  ;z Z
 map  ;x X
@@ -136,7 +146,7 @@ imap  ;a A
 imap  ;s S
 imap  ;d D
 imap  ;f F
-""imap  ;df ;<Esc>
+imap  ;df ;<Esc>
 imap  ;g G
 imap  ;z Z
 imap  ;x X
@@ -159,7 +169,7 @@ cmap  ;a A
 cmap  ;s S
 cmap  ;d D
 cmap  ;f F
-""cmap  ;df ;<Esc>
+cmap  ;df ;<Esc>
 cmap  ;g G
 cmap  ;z Z
 cmap  ;x X
@@ -208,10 +218,14 @@ source $VIMRUNTIME/macros/matchit.vim
 "Leader shortcut"
 nmap <Leader>w :wa<cr>
 nmap <Leader>q :wq<cr>
-nmap <Leader>qa :wqa<cr>
-nmap <Leader>q! :qa!<cr>
+nmap <Leader>Q :wqa<cr>
+nmap <Leader>d :qa!<cr>
 "indent-guide"
 "" 从第二层开始可视化显示缩进
 let g:indent_guides_start_level=2
 " 色块宽度
 let g:indent_guides_guide_size=1
+" 设置插件 indexer 调用 ctags 的参数
+" " 默认 --c++-kinds=+p+l，重新设置为 --c++-kinds=+p+l+x+c+d+e+f+g+m+n+s+t+u+v
+" " 默认 --fields=+iaS 不满足 YCM 要求，需改为 --fields=+iaSl
+let g:indexer_ctagsCommandLineOptions="--c++-kinds=+p+l+x+c+d+e+f+g+m+n+s+t+u+v --fields=+iaSl --extra=+q"""
