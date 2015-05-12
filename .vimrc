@@ -79,6 +79,7 @@ let g:Powerline_symbols = 'fancy'
 
 "代码折叠
 set foldmethod=indent
+set nofoldenable
 set foldlevel=100
 
 "设置快捷键
@@ -98,7 +99,7 @@ nmap <Leader>j <C-w>j
 nmap <Leader>h <C-w>h
 nmap <Leader>k <C-w>k
 nmap <Leader>l <C-w>l
-""nmap <Leader>W <C-w>w
+"nmap <Leader>W <C-w>w
 nmap <Leader>f <C-f>
 vmap <Leader>f <C-f>
 nmap <Leader>b <C-b>
@@ -106,6 +107,8 @@ vmap <Leader>B <C-b>
 nmap <Leader>o <C-o>
 nmap oo <C-o>
 nmap <Leader>v <C-v>
+nmap <Leader>r :source ~/.vimrc<cr>
+nmap <Leader><Space> <cr>
 nmap vv <C-v>
 ""nmap z xh
 map <F5> :NERDTree<cr>
@@ -208,7 +211,7 @@ let g:winManagerWindowLayout='FileExplorer|TagList'
 "property of cscope
 set csprg=/usr/local/bin/cscope
 "property of supertab
-"let g:SuperTabDefaultCompletionType = "context"
+let g:SuperTabDefaultCompletionType = "context"
 
 "properties of matlab"
 source $VIMRUNTIME/macros/matchit.vim
@@ -217,15 +220,54 @@ source $VIMRUNTIME/macros/matchit.vim
 ""autocmd FileType c,cpp  
 "Leader shortcut"
 nmap <Leader>w :wa<cr>
-nmap <Leader>q :wq<cr>
-nmap <Leader>Q :wqa<cr>
-nmap <Leader>d :qa!<cr>
+nmap <Leader>q :q<cr>
+nmap <Leader>Q :q!<cr>
+nmap <Leader>a :qa<cr>
 "indent-guide"
 "" 从第二层开始可视化显示缩进
-let g:indent_guides_start_level=2
+let g:indent_guides_start_level=1
 " 色块宽度
 let g:indent_guides_guide_size=1
+:nmap <silent> <Leader>g <Plug>IndentGuidesToggle
 " 设置插件 indexer 调用 ctags 的参数
 " " 默认 --c++-kinds=+p+l，重新设置为 --c++-kinds=+p+l+x+c+d+e+f+g+m+n+s+t+u+v
 " " 默认 --fields=+iaS 不满足 YCM 要求，需改为 --fields=+iaSl
 let g:indexer_ctagsCommandLineOptions="--c++-kinds=+p+l+x+c+d+e+f+g+m+n+s+t+u+v --fields=+iaSl --extra=+q"""
+
+"tagbar"
+let tagbar_left=1 
+nnoremap <Leader>tb :TagbarToggle<CR> 
+let tagbar_width=32 
+let g:tagbar_compact=1
+let g:tagbar_type_cpp = {
+    \ 'kinds' : [
+        \ 'd:macros:1',
+        \ 'g:enums',
+        \ 't:typedefs:0:0',
+        \ 'e:enumerators:0:0',
+        \ 'n:namespaces',
+        \ 'c:classes',
+        \ 's:structs',
+        \ 'u:unions',
+        \ 'f:functions',
+        \ 'm:members:0:0',
+        \ 'v:global:0:0',
+        \ 'x:external:0:0',
+        \ 'l:local:0:0'
+     \ ],
+     \ 'sro'        : '::',
+     \ 'kind2scope' : {
+         \ 'g' : 'enum',
+         \ 'n' : 'namespace',
+         \ 'c' : 'class',
+         \ 's' : 'struct',
+         \ 'u' : 'union'
+     \ },
+     \ 'scope2kind' : {
+         \ 'enum'      : 'g',
+         \ 'namespace' : 'n',
+         \ 'class'     : 'c',
+         \ 'struct'    : 's',
+         \ 'union'     : 'u'
+     \ }
+\ }
