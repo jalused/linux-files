@@ -3,6 +3,7 @@
 "Date: 2014-10-10
 
 let mapleader = ","
+
 ""将 pathogen 自身也置于独立目录中，需指定其路径 
 runtime bundle/pathogen/autoload/pathogen.vim
 ""运行 pathogen
@@ -94,11 +95,12 @@ nmap  L <C-w>l
 map  df <Esc>
 omap df <Esc>
 imap df <Esc>
-cmap df <Esc> 
-nmap <Leader>j <C-w>j
-nmap <Leader>h <C-w>h
-nmap <Leader>k <C-w>k
-nmap <Leader>l <C-w>l
+cmap df <Esc>
+imap mf <cr>
+""nmap <Leader>j <C-w>j
+""nmap <Leader>h <C-w>h
+""nmap <Leader>k <C-w>k
+""nmap <Leader>l <C-w>l
 "nmap <Leader>W <C-w>w
 nmap <Leader>f <C-f>
 vmap <Leader>f <C-f>
@@ -117,7 +119,7 @@ imap ,, <Esc>la
 ""imap <C-h> <Esc>j
 ""map <C-c> :wqa<cr>
 "映射空格加分号为右shift，不知道如何直接映射，所以采取暴力方法"
-map  ;q Q
+map  q Q
 map  ;w W
 map  ;e E
 map  ;r R
@@ -148,7 +150,7 @@ imap  ;t T
 imap  ;a A
 imap  ;s S
 imap  ;d D
-imap  ;f F
+""imap  ;f F
 imap  ;df ;<Esc>
 imap  ;g G
 imap  ;z Z
