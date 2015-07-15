@@ -7,7 +7,6 @@ let mapleader = ","
 ""将 pathogen 自身也置于独立目录中，需指定其路径 
 runtime bundle/pathogen/autoload/pathogen.vim
 ""运行 pathogen
-"testing comment again"
 execute pathogen#infect()
 "显示行号
 set number
