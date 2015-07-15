@@ -8,7 +8,7 @@ let mapleader = ","
 runtime bundle/pathogen/autoload/pathogen.vim
 ""运行 pathogen
 execute pathogen#infect()
-"test"
+""test comment""
 "显示行号
 set number
 "检测文件类型
