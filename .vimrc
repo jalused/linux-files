@@ -59,6 +59,7 @@ set gdefault
 ""else
 ""set backup
 ""endif
+set nobackup
 
 "状态栏相关设置
 "设置右下角显示光标位置的状态行
