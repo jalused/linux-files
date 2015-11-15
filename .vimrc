@@ -95,97 +95,96 @@ map  df <Esc>
 omap df <Esc>
 imap df <Esc>
 cmap df <Esc> 
-nmap <Leader>j <C-w>j
-nmap <Leader>h <C-w>h
-nmap <Leader>k <C-w>k
-nmap <Leader>l <C-w>l
 "nmap <Leader>W <C-w>w
 nmap <Leader>f <C-f>
 vmap <Leader>f <C-f>
 nmap <Leader>b <C-b>
 vmap <Leader>B <C-b>
 nmap <Leader>o <C-o>
-nmap oo <C-o>
+nmap <Leader>o <C-o>
 nmap <Leader>v <C-v>
 nmap <Leader>r :source ~/.vimrc<cr>
-nmap <Leader><Space> <cr>
-nmap vv <C-v>
+nmap <Leader>v <C-v>
+imap fj <cr>
+nmap fj <cr>
+cmap fj <cr>
 ""nmap z xh
-map <F5> :NERDTree<cr>
+map <leader>n :NERDTree<cr>
+map <leader>t :Tlist<cr>
 ""imap <C-l> <Esc>la
 imap ,, <Esc>la
 ""imap <C-h> <Esc>j
 ""map <C-c> :wqa<cr>
 "映射空格加分号为右shift，不知道如何直接映射，所以采取暴力方法"
-map  ;q Q
-map  ;w W
-map  ;e E
-map  ;r R
-map  ;t T
-map  ;a A
-map  ;s S
-map  ;d D
-map  ;f F
-map  ;df ;<Esc>
-map  ;g G
-map  ;z Z
-map  ;x X
-map  ;c C
-map  ;v V
-map  ;b B
-map  ;` ~
-map  ;1 !
-map  ;2 @
-map  ;3 #
-map  ;4 $
-map  ;4 $
-map  ;5 %
-imap  ;q Q
-imap  ;w W
-imap  ;e E
-imap  ;r R
-imap  ;t T
-imap  ;a A
-imap  ;s S
-imap  ;d D
-imap  ;f F
-imap  ;df ;<Esc>
-imap  ;g G
-imap  ;z Z
-imap  ;x X
-imap  ;c C
-imap  ;v V
-imap  ;b B
-imap  ;` ~
-imap  ;1 !
-imap  ;2 @
-imap  ;3 #
-imap  ;4 $
-imap  ;4 $
-imap  ;5 %
-cmap  ;q Q
-cmap  ;w W
-cmap  ;e E
-cmap  ;r R
-cmap  ;t T
-cmap  ;a A
-cmap  ;s S
-cmap  ;d D
-cmap  ;f F
-cmap  ;df ;<Esc>
-cmap  ;g G
-cmap  ;z Z
-cmap  ;x X
-cmap  ;c C
-cmap  ;v V
-cmap  ;b B
-cmap  ;` ~
-cmap  ;1 !
-cmap  ;2 @
-cmap  ;3 #
-cmap  ;4 $
-cmap  ;4 $
-cmap  ;5 %
+""map  ;q Q
+""map  ;w W
+""map  ;e E
+""map  ;r R
+""map  ;t T
+""map  ;a A
+""map  ;s S
+""map  ;d D
+""map  ;f F
+""map  ;df ;<Esc>
+""map  ;g G
+""map  ;z Z
+""map  ;x X
+""map  ;c C
+""map  ;v V
+""map  ;b B
+""map  ;` ~
+""map  ;1 !
+""map  ;2 @
+""map  ;3 #
+""map  ;4 $
+""map  ;4 $
+""map  ;5 %
+""imap  ;q Q
+""imap  ;w W
+""imap  ;e E
+""imap  ;r R
+""imap  ;t T
+""imap  ;a A
+""imap  ;s S
+""imap  ;d D
+""imap  ;f F
+""imap  ;df ;<Esc>
+""imap  ;g G
+""imap  ;z Z
+""imap  ;x X
+""imap  ;c C
+""imap  ;v V
+""imap  ;b B
+""imap  ;` ~
+""imap  ;1 !
+""imap  ;2 @
+""imap  ;3 #
+""imap  ;4 $
+""imap  ;4 $
+""imap  ;5 %
+""cmap  ;q Q
+""cmap  ;w W
+""cmap  ;e E
+""cmap  ;r R
+""cmap  ;t T
+""cmap  ;a A
+""cmap  ;s S
+""cmap  ;d D
+""cmap  ;f F
+""cmap  ;df ;<Esc>
+""cmap  ;g G
+""cmap  ;z Z
+""cmap  ;x X
+""cmap  ;c C
+""cmap  ;v V
+""cmap  ;b B
+""cmap  ;` ~
+""cmap  ;1 !
+""cmap  ;2 @
+""cmap  ;3 #
+""cmap  ;4 $
+""cmap  ;4 $
+""cmap  ;5 %
 ""nnoremap z xh
 "括号自动补全
 inoremap ( ()<Esc>i
@@ -211,7 +210,8 @@ let g:winManagerWindowLayout='FileExplorer|TagList'
 "property of cscope
 set csprg=/usr/local/bin/cscope
 "property of supertab
-let g:SuperTabDefaultCompletionType = "context"
+let g:SuperTabDefaultCompletionType = "<C-X><C-O>"
+let g:SuperTabRetainCompletionType = 2
 
 "properties of matlab"
 source $VIMRUNTIME/macros/matchit.vim
@@ -228,7 +228,7 @@ nmap <Leader>a :qa<cr>
 let g:indent_guides_start_level=1
 " 色块宽度
 let g:indent_guides_guide_size=1
-:nmap <silent> <Leader>g <Plug>IndentGuidesToggle
+:nmap <silent> <Leader>d <Plug>IndentGuidesToggle
 " 设置插件 indexer 调用 ctags 的参数
 " " 默认 --c++-kinds=+p+l，重新设置为 --c++-kinds=+p+l+x+c+d+e+f+g+m+n+s+t+u+v
 " " 默认 --fields=+iaS 不满足 YCM 要求，需改为 --fields=+iaSl
@@ -271,3 +271,7 @@ let g:tagbar_type_cpp = {
          \ 'union'     : 'u'
      \ }
 \ }
+
+nnoremap <silent><Leader>g :Grep<CR>
+"auto-completion"
+set completeopt=longest,menu
