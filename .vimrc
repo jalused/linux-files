@@ -3,11 +3,11 @@
 "Date: 2014-10-10
 
 let mapleader = ","
+
 ""将 pathogen 自身也置于独立目录中，需指定其路径 
 runtime bundle/pathogen/autoload/pathogen.vim
 ""运行 pathogen
 execute pathogen#infect()
-
 "显示行号
 set number
 "检测文件类型
@@ -59,6 +59,7 @@ set gdefault
 ""else
 ""set backup
 ""endif
+set nobackup
 
 "状态栏相关设置
 "设置右下角显示光标位置的状态行
@@ -95,7 +96,7 @@ map  df <Esc>
 omap df <Esc>
 imap df <Esc>
 cmap df <Esc> 
-"nmap <Leader>W <C-w>w
+imap mf <cr>
 nmap <Leader>f <C-f>
 vmap <Leader>f <C-f>
 nmap <Leader>b <C-b>
@@ -116,75 +117,75 @@ imap ,, <Esc>la
 ""imap <C-h> <Esc>j
 ""map <C-c> :wqa<cr>
 "映射空格加分号为右shift，不知道如何直接映射，所以采取暴力方法"
-""map  ;q Q
-""map  ;w W
-""map  ;e E
-""map  ;r R
-""map  ;t T
-""map  ;a A
-""map  ;s S
-""map  ;d D
-""map  ;f F
-""map  ;df ;<Esc>
-""map  ;g G
-""map  ;z Z
-""map  ;x X
-""map  ;c C
-""map  ;v V
-""map  ;b B
-""map  ;` ~
-""map  ;1 !
-""map  ;2 @
-""map  ;3 #
-""map  ;4 $
-""map  ;4 $
-""map  ;5 %
-""imap  ;q Q
-""imap  ;w W
-""imap  ;e E
-""imap  ;r R
-""imap  ;t T
-""imap  ;a A
-""imap  ;s S
-""imap  ;d D
+map  q Q
+map  ;w W
+map  ;e E
+map  ;r R
+map  ;t T
+map  ;a A
+map  ;s S
+map  ;d D
+map  ;f F
+map  ;df ;<Esc>
+map  ;g G
+map  ;z Z
+map  ;x X
+map  ;c C
+map  ;v V
+map  ;b B
+map  ;` ~
+map  ;1 !
+map  ;2 @
+map  ;3 #
+map  ;4 $
+map  ;4 $
+map  ;5 %
+imap  ;q Q
+imap  ;w W
+imap  ;e E
+imap  ;r R
+imap  ;t T
+imap  ;a A
+imap  ;s S
+imap  ;d D
 ""imap  ;f F
-""imap  ;df ;<Esc>
-""imap  ;g G
-""imap  ;z Z
-""imap  ;x X
-""imap  ;c C
-""imap  ;v V
-""imap  ;b B
-""imap  ;` ~
-""imap  ;1 !
-""imap  ;2 @
-""imap  ;3 #
-""imap  ;4 $
-""imap  ;4 $
-""imap  ;5 %
-""cmap  ;q Q
-""cmap  ;w W
-""cmap  ;e E
-""cmap  ;r R
-""cmap  ;t T
-""cmap  ;a A
-""cmap  ;s S
-""cmap  ;d D
-""cmap  ;f F
-""cmap  ;df ;<Esc>
-""cmap  ;g G
-""cmap  ;z Z
-""cmap  ;x X
-""cmap  ;c C
-""cmap  ;v V
-""cmap  ;b B
-""cmap  ;` ~
-""cmap  ;1 !
-""cmap  ;2 @
-""cmap  ;3 #
-""cmap  ;4 $
-""cmap  ;4 $
-""cmap  ;5 %
+imap  ;df ;<Esc>
+imap  ;g G
+imap  ;z Z
+imap  ;x X
+imap  ;c C
+imap  ;v V
+imap  ;b B
+imap  ;` ~
+imap  ;1 !
+imap  ;2 @
+imap  ;3 #
+imap  ;4 $
+imap  ;4 $
+imap  ;5 %
+cmap  ;q Q
+cmap  ;w W
+cmap  ;e E
+cmap  ;r R
+cmap  ;t T
+cmap  ;a A
+cmap  ;s S
+cmap  ;d D
+cmap  ;f F
+cmap  ;df ;<Esc>
+cmap  ;g G
+cmap  ;z Z
+cmap  ;x X
+cmap  ;c C
+cmap  ;v V
+cmap  ;b B
+cmap  ;` ~
+cmap  ;1 !
+cmap  ;2 @
+cmap  ;3 #
+cmap  ;4 $
+cmap  ;4 $
+cmap  ;5 %
 ""nnoremap z xh
 "括号自动补全
 inoremap ( ()<Esc>i
