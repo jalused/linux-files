@@ -51,7 +51,7 @@ set incsearch
 "高亮查询结果
 set hlsearch
 "替换时所有的行内匹配都被替换，不是只有第一个
-set gdefault
+""set gdefault
 "备份设置
 "修改文件后自动备份，加“~”后缀
 ""if has("vms")
@@ -101,8 +101,7 @@ nmap <Leader>f <C-f>
 vmap <Leader>f <C-f>
 nmap <Leader>b <C-b>
 vmap <Leader>B <C-b>
-nmap <Leader>o <C-o>
-nmap <Leader>o <C-o>
+nmap `o <C-o>
 nmap <Leader>v <C-v>
 nmap <Leader>r :source ~/.vimrc<cr>
 nmap <Leader>v <C-v>
