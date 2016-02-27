@@ -221,6 +221,7 @@ source $VIMRUNTIME/macros/matchit.vim
 "Leader shortcut"
 nmap <Leader>w :wa<cr>
 nmap <Leader>q :q<cr>
+nmap <Leader>x :x<cr>
 nmap <Leader>Q :q!<cr>
 nmap <Leader>a :qa<cr>
 "indent-guide"
