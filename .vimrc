@@ -61,6 +61,8 @@ set hlsearch
 ""endif
 set nobackup
 
+"禁止光标闪烁"
+set novisualbell
 "状态栏相关设置
 "设置右下角显示光标位置的状态行
 set ruler
