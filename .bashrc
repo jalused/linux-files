@@ -88,7 +88,7 @@ fi
 alias ll='ls -alF'
 alias la='ls -A'
 alias l='ls -CF'
-alias ll = 'ls -l'
+alias ll= 'ls -l'
 alias tmux='tmux -2'
 alias ta = 'tmux attach'
 alias cp = 'cp -r'
