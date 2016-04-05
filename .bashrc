@@ -116,3 +116,9 @@ if ! shopt -oq posix; then
     . /etc/bash_completion
   fi
 fi
+PATH=/home/liangjiang/code/scripts:$PATH
+export PATH
+CAFFE_ROOT=/home/liangjiang/code/caffe/
+export CAFFE_ROOT
+PYTHONPATH=/home/liangjiang/code/caffe/python/
+export PYTHONPATH
