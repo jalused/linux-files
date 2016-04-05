@@ -136,5 +136,5 @@ magenta=$'\[\e[1;35m\]'
    cyan=$'\[\e[1;36m\]'
   white=$'\[\e[1;37m\]'
  normal=$'\[\e[m\]'
-PS1="$magenta\u$white@$green\h$white:$cyan\w$yellow\$git_branch$white$red\$ $normal"
+PS1="$blue\u$white@$blue\h$white:$cyan\W$yellow\$git_branch$white$red\$ $normal"
 
