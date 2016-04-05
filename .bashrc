@@ -112,11 +112,11 @@ find_git_branch () {
         if [ -f "$dir/.git/HEAD" ]; then
             head=$(< "$dir/.git/HEAD")
             if [[ $head = ref:\ refs/heads/* ]]; then
-                git_branch="[ ${head#*/*/}]"
+                git_branch="[${head#*/*/}]"
             elif [[ $head != '' ]]; then
-                git_branch="[ (detached)]"
+                git_branch="[(detached)]"
             else
-                git_branch="[ (unknow)]"
+                git_branch="[(unknow)]"
             fi
             return
         fi
