@@ -88,10 +88,10 @@ fi
 alias ll='ls -alF'
 alias la='ls -A'
 alias l='ls -CF'
-alias ll= 'ls -l'
+alias ll='ls -l'
 alias tmux='tmux -2'
-alias ta = 'tmux attach'
-alias cp = 'cp -r'
+alias ta='tmux attach'
+alias cp='cp -r'
 
 # Add an "alert" alias for long running commands.  Use like so:
 #   sleep 10; alert
