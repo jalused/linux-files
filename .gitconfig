@@ -1,0 +1,12 @@
+[user]
+	name = Liang Jiang
+	email = jal@mail.ustc.edu.cn
+[core]
+	editor = vim
+[alias]
+	st = status
+	co = checkout
+	br = branch
+	mr = merge
+	ci = commit
+	lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
