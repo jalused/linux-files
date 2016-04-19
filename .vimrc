@@ -90,6 +90,8 @@ set foldlevel=100
 ""omap <Leader>d <Esc>
 ""imap <Leader>d <Esc>
 ""cmap <Leader>d <Esc> 
+nmap vo <C-o>
+nmap vi <C-i>
 nmap  J <C-w>j
 nmap  H <C-w>h
 nmap  K <C-w>k
