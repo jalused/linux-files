@@ -105,6 +105,7 @@ nmap <Leader>f <C-f>
 vmap <Leader>f <C-f>
 nmap <Leader>b <C-b>
 vmap <Leader>B <C-b>
+nmap <Leader>z :ZoomWin<cr>
 nmap `o <C-o>
 nmap <Leader>v <C-v>
 nmap <Leader>r :source ~/.vimrc<cr>
