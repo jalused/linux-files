@@ -4,7 +4,7 @@
 [core]
 	editor = vim
 [alias]
-	st = status
+	st = status -uno --column
 	co = checkout
 	br = branch
 	mr = merge
