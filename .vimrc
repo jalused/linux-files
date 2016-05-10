@@ -196,16 +196,12 @@ cmap  ;5 %
 "括号自动补全
 ""inoremap ( ()<Esc>i
 
-inoremap [ []<Esc>i
-inoremap { {}<Esc>i
+""inoremap [ []<Esc>i
+""inoremap { {}<Esc>i
 ""inoremap < <><Esc>i
 
 "":nnoremap <leader>d <C-b>
 "引号自动补全
-inoremap " ""<Esc>i
-""inoremap ' ''<Esc>i
-
-"property of taglist
 let Tlist_Show_One_File = 1
 let Tlist_Exit_OnlyWindow = 1
 let Tlist_Sort_Type = "name"
@@ -301,9 +297,12 @@ Bundle "tpope/vim-commentary"
 Bundle "tpope/vim-fugitive"
 Bundle "tpope/vim-markdown"
 Bundle "tpope/vim-surround"
+Bundle 'Valloric/YouCompleteMe'
 Bundle "vimprj"
 Bundle "vim-scripts/indexer.tar.gz"
 Bundle "Yggdroot/indentLine"
 Bundle "ZoomWin"
 "for vim-commetary"
 autocmd FileType python,shell set commentstring=#\ %s
+"for gitgutter
+let g:gitgutter_max_signs = 10000
