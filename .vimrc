@@ -5,9 +5,9 @@
 let mapleader = ","
 
 ""将 pathogen 自身也置于独立目录中，需指定其路径 
-runtime bundle/pathogen/autoload/pathogen.vim
+""runtime bundle/pathogen/autoload/pathogen.vim
 ""运行 pathogen
-execute pathogen#infect()
+""execute pathogen#infect()
 "显示行号
 set number
 "检测文件类型
@@ -116,6 +116,8 @@ cmap fj <cr>
 ""nmap z xh
 map <leader>n :NERDTree<cr>
 map <leader>t :Tlist<cr>
+map <Leader><leader>h <Plug>(easymotion-linebackward)
+map <Leader><leader>l <Plug>(easymotion-lineforward)
 ""imap <C-l> <Esc>la
 imap ,, <Esc>la
 ""imap <C-h> <Esc>j
@@ -192,7 +194,7 @@ cmap  ;4 $
 cmap  ;5 %
 ""nnoremap z xh
 "括号自动补全
-inoremap ( ()<Esc>i
+""inoremap ( ()<Esc>i
 
 inoremap [ []<Esc>i
 inoremap { {}<Esc>i
@@ -278,6 +280,29 @@ let g:tagbar_type_cpp = {
      \ }
 \ }
 
+
 nnoremap <silent><Leader>g :Grep<CR>
 "auto-completion"
 set completeopt=longest,menu
+set rtp+=~/.vim/bundle/vundle/
+call vundle#rc()
+Bundle "airblade/vim-gitgutter"
+Bundle "DfrankUtil"
+Bundle 'gmarik/vundle'
+Bundle "gregsexton/gitv"
+Bundle "kshenoy/vim-signature"
+Bundle 'Lokaltog/vim-easymotion'
+Bundle "Lokaltog/vim-powerline"
+Bundle "majutsushi/tagbar"
+Bundle "Raimondi/delimitMate"
+Bundle "scrooloose/nerdtree"
+Bundle "taglist.vim"
+Bundle "tpope/vim-commentary"
+Bundle "tpope/vim-fugitive"
+Bundle "tpope/vim-surround"
+Bundle "vimprj"
+Bundle "vim-scripts/indexer.tar.gz"
+Bundle "Yggdroot/indentLine"
+Bundle "ZoomWin"
+"for vim-commetary"
+autocmd FileType python,shell set commentstring=#\ %s
