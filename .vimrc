@@ -35,9 +35,9 @@ set cindent
 set smartindent
 "tab键为4个空格，行之间交错时使用4个空格
 set expandtab 
-set tabstop=4
-set shiftwidth=4
-set softtabstop=4
+set tabstop=2
+set shiftwidth=2
+set softtabstop=2
 "设置匹配模式，括号匹配等
 set showmatch
 "去除Vim的GUI版本的toolbar
