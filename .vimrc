@@ -119,7 +119,7 @@ map <leader>t :Tlist<cr>
 map <Leader><leader>h <Plug>(easymotion-linebackward)
 map <Leader><leader>l <Plug>(easymotion-lineforward)
 ""imap <C-l> <Esc>la
-imap ,, <Esc>la
+" imap ,, <Esc>la
 ""imap <C-h> <Esc>j
 ""map <C-c> :wqa<cr>
 "映射空格加分号为右shift，不知道如何直接映射，所以采取暴力方法"
@@ -226,7 +226,7 @@ nmap <Leader>w :wa<cr>
 nmap <Leader>q :q<cr>
 nmap <Leader>x :x<cr>
 nmap <Leader>Q :q!<cr>
-nmap <Leader>a :qa<cr>
+" nmap <Leader>a :qa<cr>
 "indent-guide"
 "" 从第二层开始可视化显示缩进
 let g:indent_guides_start_level=1
@@ -309,20 +309,32 @@ autocmd FileType python,shell set commentstring=#\ %s
 "for gitgutter
 let g:gitgutter_max_signs = 10000
 "for syntastic and YouCompleteMe
-let g:ycm_error_symbol='x'  
-let g:ycm_warning_symbol='!'
+let g:ycm_error_symbol='>>'  
+let g:ycm_warning_symbol='>'
 "let g:syntastic_enable_balloons = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_cpp_include_dirs = ['/usr/include/'] 
 let g:syntastic_cpp_remove_include_errors = 1
 let g:syntastic_cpp_check_header = 1
 let g:syntastic_cpp_compiler = 'clang++'
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
+highlight SyntasticErrorSign guifg=white guibg=black
+
 let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_check_on_open = 1
+let g:syntastic_auto_loc_list = 0
+let g:syntastic_loc_list_height = 5
 let g:syntastic_check_on_wq = 0
+noremap <leader>e :call ToggleErrors()<cr> 
+noremap <leader>en :lnext<cr>
+noremap <leader>ep :lprevious<cr>
+function! ToggleErrors()
+  let old_last_winnr = winnr('$')
+  lclose
+  if old_last_winnr == winnr('$')
+    " Nothing was closed, open syntastic error location panel"
+    Errors
+  endif
+endfunction
+  
 
 let g:syntastic_cpp_compiler_options = '-std=c++11 -stdlib=libstdc++'
 let g:ycm_global_ycm_extra_conf = '~/.ycm_extra_conf.py'  
@@ -335,13 +347,16 @@ set completeopt-=preview
 "不显示开启vim时检查ycm_extra_conf文件的信息  
 let g:ycm_confirm_extra_conf=0  
 "每次重新生成匹配项，禁止缓存匹配项  
-let g:ycm_cache_omnifunc=0  
+"let g:ycm_cache_omnifunc=0  
 "在注释中也可以补全  
-let g:ycm_complete_in_comments=1  
+"let g:ycm_complete_in_comments=1  
+let g:ycm_key_invoke_completion='<C-d>'
 "输入第一个字符就开始补全  
-let g:ycm_min_num_of_chars_for_completion=1  
+" let g:ycm_min_num_of_chars_for_completion=1  
 "不查询ultisnips提供的代码模板补全，如果需要，设置成1即可  
 let g:ycm_use_ultisnips_completer=0
+" let g:ycm_min_num_of_chars_for_completion=5
+"let g:ycm_auto_trigger = 0
 "设置跳转的快捷键，可以跳转到definition和declaration  
 nnoremap <leader>gc :YcmCompleter GoToDeclaration<CR>  
 nnoremap <leader>gf :YcmCompleter GoToDefinition<CR>  
