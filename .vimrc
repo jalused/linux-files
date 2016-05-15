@@ -110,9 +110,9 @@ nmap `o <C-o>
 nmap <Leader>v <C-v>
 nmap <Leader>r :source ~/.vimrc<cr>
 nmap <Leader>v <C-v>
-imap fj <cr>
-nmap fj <cr>
-cmap fj <cr>
+" imap fj <cr>
+" nmap fj <cr>
+" cmap fj <cr>
 ""nmap z xh
 map <leader>n :NERDTree<cr>
 map <leader>t :Tlist<cr>
