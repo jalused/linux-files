@@ -90,3 +90,5 @@ DOWNLOAD=/c/Users/Liang\ Jiang/Downloads
 export DOWNLOAD
 SECURECRT=/cygdrive/f/SecureCRT-transfer
 export SECURECRT
+BACKUP=/cygdrive/f/BaiduYunBackup
+export BACKUP
