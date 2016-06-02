@@ -151,5 +151,5 @@ PATH=/home/liangjiang/code/scripts:$PATH
 export PATH
 CAFFE_ROOT=/home/liangjiang/code/caffe/
 export CAFFE_ROOT
-PYTHONPATH=/home/liangjiang/code/caffe/python/
++PYTHONPATH=/home/liangjiang/code/caffe/python/:/home/liangjiang/code/keras/
 export PYTHONPATH
