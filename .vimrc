@@ -317,7 +317,7 @@ let g:syntastic_cpp_include_dirs = ['/usr/include/']
 let g:syntastic_cpp_remove_include_errors = 1
 let g:syntastic_cpp_check_header = 1
 let g:syntastic_cpp_compiler = 'clang++'
-highlight SyntasticErrorSign guifg=white guibg=black
+"highlight SyntasticErrorSign guifg=white guibg=black
 
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 0
@@ -361,3 +361,7 @@ let g:ycm_use_ultisnips_completer=0
 nnoremap <leader>gc :YcmCompleter GoToDeclaration<CR>  
 nnoremap <leader>gf :YcmCompleter GoToDefinition<CR>  
 nnoremap <leader>gg :YcmCompleter GoToDefinitionElseDeclaration<CR>  
+
+"GitGutter
+nnoremap <leader><leader>n :GitGutterNextHunk<CR>
+nnoremap <leader><leader>p :GitGutterPrevHunk<CR>
