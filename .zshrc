@@ -49,7 +49,7 @@ ZSH_THEME="agnoster"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git z extract)
+plugins=(git cp extract history-substring-search zsh-autosuggestions vi-mode z d)
 
 # User configuration
 
@@ -93,5 +93,8 @@ PATH=/home/liangjiang/code/scripts:$PATH
 export PATH
 CAFFE_ROOT=/home/liangjiang/code/caffe/
 export CAFFE_ROOT
-PYTHONPATH=/home/liangjiang/code/caffe/python/:/home/liangjiang/code/keras/
+# PYTHONPATH=/home/liangjiang/code/caffe/python/:/home/liangjiang/code/keras/
+PYTHONPATH=/home/liangjiang/code/caffe/python/
 export PYTHONPATH
+export ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=3'
+# eval "$(fasd --init auto)"
