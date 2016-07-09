@@ -207,6 +207,7 @@ let Tlist_Exit_OnlyWindow = 1
 let Tlist_Sort_Type = "name"
 let Tlist_Ctags_Cmd = '/usr/bin/ctags'
 let Tlist_GainFocus_On_ToggleOpen = 1
+let Tlist_Use_Right_Window = 1
 "property of winmanager
 let g:winManagerWindowLayout='FileExplorer|TagList'
 
