@@ -366,3 +366,4 @@ nnoremap <leader>gg :YcmCompleter GoToDefinitionElseDeclaration<CR>
 "GitGutter
 nnoremap <leader><leader>n :GitGutterNextHunk<CR>
 nnoremap <leader><leader>p :GitGutterPrevHunk<CR>
+nmap <leader>s /<C-r>0<CR>
