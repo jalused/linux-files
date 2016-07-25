@@ -5,7 +5,7 @@ export ZSH=$HOME/.oh-my-zsh
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
-ZSH_THEME="babun"
+ZSH_THEME="agnoster"
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -49,11 +49,15 @@ ZSH_THEME="babun"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git)
 
 # User configuration
 
 export PATH=$HOME/bin:/usr/local/bin:$PATH
+plugins=(git cp extract history-substring-search zsh-autosuggestions vi-mode z d)
+
+# User configuration
+
+# export PATH="/usr/bin:/bin:/usr/sbin:/sbin:$PATH"
 # export MANPATH="/usr/local/man:$MANPATH"
 
 source $ZSH/oh-my-zsh.sh
@@ -82,13 +86,22 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-export PATH=/home/"Liang Jiang"/code/scripts:$PATH
-export PATH=/f/software/ahk:$PATH
-AHK_HOME=/f/software/ahk
-export AHK_HOME
-DOWNLOAD=/c/Users/Liang\ Jiang/Downloads
-export DOWNLOAD
-SECURECRT=/cygdrive/f/SecureCRT-transfer
-export SECURECRT
-BACKUP=/cygdrive/f/BaiduYunBackup
-export BACKUP
+alias ohmyzsh="mate ~/.oh-my-zsh"
+alias ll='ls -alF'
+alias la='ls -A'
+alias l='ls -CF'
+alias ll='ls -l'
+alias tmux='tmux -2'
+alias ta='tmux attach'
+alias cp='cp -r'
+PATH=/home/curio/code/scripts:$PATH
+export PATH
+C=/mnt/c
+export C
+F=/mnt/f
+export F
+DOWNLOADS=/mnt/c/Users/Liang\ Jiang/Downloads/
+export DOWNLOADS
+# PYTHONPATH=/home/liangjiang/code/caffe/python/:/home/liangjiang/code/keras/
+export ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=3'
+# eval "$(fasd --init auto)"

@@ -1,5 +1,5 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =8
+let g:netrw_dirhist_cnt =9
 let g:netrw_dirhist_1='/home/jiangliang/software/tmux-1.9a'
 let g:netrw_dirhist_2='/home/jiangliang/tmux-config/vendor'
 let g:netrw_dirhist_3='/home/jiangliang/code/cxxnet/jl/data/image_lists'
@@ -8,3 +8,4 @@ let g:netrw_dirhist_5='/home/jiangliang/code/semantic-colorization/src'
 let g:netrw_dirhist_6='/home/jiangliang/code/mxnet/doc'
 let g:netrw_dirhist_7='/home/jiangliang/code/pr_mini_project/tests'
 let g:netrw_dirhist_8='/home/jiangliang/code/pr_mini_project/SAE'
+let g:netrw_dirhist_9='/home/liangjiang/.vim/bundle/vundle/.git'
