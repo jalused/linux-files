@@ -4,10 +4,6 @@
 
 let mapleader = ","
 
-""将 pathogen 自身也置于独立目录中，需指定其路径 
-""runtime bundle/pathogen/autoload/pathogen.vim
-""运行 pathogen
-""execute pathogen#infect()
 "显示行号
 set number
 "检测文件类型
@@ -18,9 +14,33 @@ filetype plugin on
 set history=1000
 "背景颜色为黑色
 set background=dark
-""colorscheme phd
-""colorscheme molokai
-""colorscheme solarized
+
+" auto reload vimrc when editing it
+autocmd! bufwritepost .vimrc source ~/.vimrc
+
+set clipboard=unnamed	" yank to the system register (*) by default
+set wildchar=<TAB>	" start wild expansion in the command line using <TAB>
+set wildmenu            " wild char completion menu
+
+set copyindent		" copy the previous indentation on autoindenting
+set ignorecase		" ignore case when searching
+set smartcase		" ignore case if search pattern is all lowercase,case-sensitive otherwise
+set smarttab		" insert tabs on the start of a line according to context
+
+fun! Replace() 
+    let s:word = input("Replace " . expand('<cword>') . " with:") 
+    :exe 'bufdo! %s/\<' . expand('<cword>') . '\>/' . s:word . '/ge' 
+    :unlet! s:word 
+endfun 
+
+map <leader>r :call Replace()<CR>
+
+" open the error console
+map <leader>cc :botright cope<CR> 
+" move to next error
+map <leader>] :cn<CR>
+" move to the prev error
+map <leader>[ :cp<CR>
 
 "禁止光标闪烁"
 set gcr=a:block-blinkon0
@@ -50,15 +70,6 @@ set vb t_vb=
 set incsearch
 "高亮查询结果
 set hlsearch
-"替换时所有的行内匹配都被替换，不是只有第一个
-""set gdefault
-"备份设置
-"修改文件后自动备份，加“~”后缀
-""if has("vms")
-""set nobackup
-""else
-""set backup
-""endif
 set nobackup
 
 "禁止光标闪烁"
@@ -73,8 +84,6 @@ set laststatus=2
 
 "powerline
 set guifont=PowerlineSymbols\ for\ Powerline
-"backspace"
-""set backspace=indent,eol,start
 set nocompatible
 set t_Co=256
 set encoding=utf-8
@@ -86,10 +95,6 @@ set nofoldenable
 set foldlevel=100
 
 "设置快捷键
-""map  <Leader>d <Esc>
-""omap <Leader>d <Esc>
-""imap <Leader>d <Esc>
-""cmap <Leader>d <Esc> 
 nmap vo <C-o>
 nmap vi <C-i>
 nmap  J <C-w>j
@@ -106,102 +111,14 @@ vmap <Leader>f <C-f>
 nmap <Leader>b <C-b>
 vmap <Leader>B <C-b>
 nmap <Leader>z :ZoomWin<cr>
-nmap `o <C-o>
 nmap <Leader>v <C-v>
-nmap <Leader>r :source ~/.vimrc<cr>
+" nmap <Leader>r :source ~/.vimrc<cr>
 nmap <Leader>v <C-v>
-" imap fj <cr>
-" nmap fj <cr>
-" cmap fj <cr>
-""nmap z xh
 map <leader>n :NERDTree<cr>
 map <leader>t :Tlist<cr>
 map <Leader><leader>h <Plug>(easymotion-linebackward)
 map <Leader><leader>l <Plug>(easymotion-lineforward)
-""imap <C-l> <Esc>la
-" imap ,, <Esc>la
-""imap <C-h> <Esc>j
-""map <C-c> :wqa<cr>
-"映射空格加分号为右shift，不知道如何直接映射，所以采取暴力方法"
-map  q Q
-map  ;w W
-map  ;e E
-map  ;r R
-map  ;t T
-map  ;a A
-map  ;s S
-map  ;d D
-map  ;f F
-map  ;df ;<Esc>
-map  ;g G
-map  ;z Z
-map  ;x X
-map  ;c C
-map  ;v V
-map  ;b B
-map  ;` ~
-map  ;1 !
-map  ;2 @
-map  ;3 #
-map  ;4 $
-map  ;4 $
-map  ;5 %
-imap  ;q Q
-imap  ;w W
-imap  ;e E
-imap  ;r R
-imap  ;t T
-imap  ;a A
-imap  ;s S
-imap  ;d D
-""imap  ;f F
-imap  ;df ;<Esc>
-imap  ;g G
-imap  ;z Z
-imap  ;x X
-imap  ;c C
-imap  ;v V
-imap  ;b B
-imap  ;` ~
-imap  ;1 !
-imap  ;2 @
-imap  ;3 #
-imap  ;4 $
-imap  ;4 $
-imap  ;5 %
-cmap  ;q Q
-cmap  ;w W
-cmap  ;e E
-cmap  ;r R
-cmap  ;t T
-cmap  ;a A
-cmap  ;s S
-cmap  ;d D
-cmap  ;f F
-cmap  ;df ;<Esc>
-cmap  ;g G
-cmap  ;z Z
-cmap  ;x X
-cmap  ;c C
-cmap  ;v V
-cmap  ;b B
-cmap  ;` ~
-cmap  ;1 !
-cmap  ;2 @
-cmap  ;3 #
-cmap  ;4 $
-cmap  ;4 $
-cmap  ;5 %
-""nnoremap z xh
-"括号自动补全
-""inoremap ( ()<Esc>i
 
-""inoremap [ []<Esc>i
-""inoremap { {}<Esc>i
-""inoremap < <><Esc>i
-
-"":nnoremap <leader>d <C-b>
-"引号自动补全
 let Tlist_Show_One_File = 1
 let Tlist_Exit_OnlyWindow = 1
 let Tlist_Sort_Type = "name"
@@ -219,15 +136,10 @@ let g:SuperTabRetainCompletionType = 2
 
 "properties of matlab"
 source $VIMRUNTIME/macros/matchit.vim
-""autocmd BufEnter *.m compiler mlint
-"auto fold"
-""autocmd FileType c,cpp  
-"Leader shortcut"
 nmap <Leader>w :wa<cr>
 nmap <Leader>q :q<cr>
 nmap <Leader>x :x<cr>
 nmap <Leader>Q :q!<cr>
-" nmap <Leader>a :qa<cr>
 "indent-guide"
 "" 从第二层开始可视化显示缩进
 let g:indent_guides_start_level=1
@@ -305,6 +217,7 @@ Bundle "vimprj"
 Bundle "vim-scripts/indexer.tar.gz"
 Bundle "Yggdroot/indentLine"
 Bundle "ZoomWin"
+Bundle "terryma/vim-multiple-cursors"
 "for vim-commetary"
 autocmd FileType python,shell set commentstring=#\ %s
 "for gitgutter
