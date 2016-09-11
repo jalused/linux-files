@@ -89,7 +89,7 @@ alias ll='ls -l'
 alias tmux='tmux -2'
 alias ta='tmux attach'
 alias cp='cp -r'
-PATH=/home/liangjiang/code/scripts:$PATH
+PATH=/home/liangjiang/code/scripts:/home/liangjiang/code/util/bin:$PATH
 export PATH
 CAFFE_ROOT=/home/liangjiang/code/caffe/
 export CAFFE_ROOT
