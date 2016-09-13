@@ -195,29 +195,32 @@ nnoremap <silent><Leader>g :Grep<CR>
 set completeopt=longest,menu
 set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
-Bundle "airblade/vim-gitgutter"
-Bundle "DfrankUtil"
-Bundle 'gmarik/vundle'
-Bundle "gregsexton/gitv"
-Bundle "kshenoy/vim-signature"
-Bundle 'Lokaltog/vim-easymotion'
-Bundle "Lokaltog/vim-powerline"
-Bundle "majutsushi/tagbar"
-Bundle "Raimondi/delimitMate"
-Bundle "rdnetto/YCM-Generator"
-Bundle "scrooloose/nerdtree"
-Bundle "syntastic"
-Bundle "taglist.vim"
-Bundle "tpope/vim-commentary"
-Bundle "tpope/vim-fugitive"
-Bundle "tpope/vim-markdown"
-Bundle "tpope/vim-surround"
-Bundle 'Valloric/YouCompleteMe'
-Bundle "vimprj"
-Bundle "vim-scripts/indexer.tar.gz"
-Bundle "Yggdroot/indentLine"
-Bundle "ZoomWin"
-Bundle "terryma/vim-multiple-cursors"
+Plugin 'airblade/vim-gitgutter'
+Plugin 'DfrankUtil'
+Plugin 'gmarik/vundle'
+Plugin 'gregsexton/gitv'
+Plugin 'kshenoy/vim-signature'
+Plugin 'Lokaltog/vim-easymotion'
+Plugin 'Lokaltog/vim-powerline'
+Plugin 'majutsushi/tagbar'
+Plugin 'Raimondi/delimitMate'
+Plugin 'rdnetto/YCM-Generator'
+Plugin 'scrooloose/nerdtree'
+Plugin 'syntastic'
+Plugin 'taglist.vim'
+Plugin 'tpope/vim-commentary'
+Plugin 'tpope/vim-fugitive'
+Plugin 'tpope/vim-markdown'
+Plugin 'tpope/vim-surround'
+Plugin 'Valloric/YouCompleteMe'
+Plugin 'vimprj'
+Plugin 'vim-scripts/indexer.tar.gz'
+Plugin 'Yggdroot/indentLine'
+Plugin 'ZoomWin'
+Plugin 'terryma/vim-multiple-cursors'
+Plugin 'ctrlpvim/ctrlp.vim'
+Plugin 'dyng/ctrlsf.vim'
+
 "for vim-commetary"
 autocmd FileType python,shell set commentstring=#\ %s
 "for gitgutter
@@ -279,4 +282,3 @@ nnoremap <leader>gg :YcmCompleter GoToDefinitionElseDeclaration<CR>
 "GitGutter
 nnoremap <leader><leader>n :GitGutterNextHunk<CR>
 nnoremap <leader><leader>p :GitGutterPrevHunk<CR>
-nmap <leader>s /<C-r>0<CR>
