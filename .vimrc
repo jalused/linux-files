@@ -282,3 +282,12 @@ nnoremap <leader>gg :YcmCompleter GoToDefinitionElseDeclaration<CR>
 "GitGutter
 nnoremap <leader><leader>n :GitGutterNextHunk<CR>
 nnoremap <leader><leader>p :GitGutterPrevHunk<CR>
+
+vnoremap <leader>cf y:CtrlSF <C-r>0<CR>
+
+" set *(#) in visual mode to forward/backward search selected content
+vnoremap * y/<C-r>0<CR>
+vnoremap # y?<C-r>0<CR>
+
+"set <leader>p to toggle paste mode
+nmap <leader>p :set paste!<BAR>set paste?<CR>
