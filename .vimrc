@@ -284,6 +284,7 @@ nnoremap <leader><leader>n :GitGutterNextHunk<CR>
 nnoremap <leader><leader>p :GitGutterPrevHunk<CR>
 
 vnoremap <leader>cf y:CtrlSF <C-r>0<CR>
+nnoremap <leader>cf yiw:CtrlSF <C-r>0<CR>
 
 " set *(#) in visual mode to forward/backward search selected content
 vnoremap * y/<C-r>0<CR>
