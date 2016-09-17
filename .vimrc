@@ -82,13 +82,6 @@ set ruler
 "设置总是显示状态栏
 set laststatus=2
 
-"powerline
-set guifont=PowerlineSymbols\ for\ Powerline
-set nocompatible
-set t_Co=256
-set encoding=utf-8
-let g:Powerline_symbols = 'fancy'
-
 "代码折叠
 set foldmethod=indent
 set nofoldenable
@@ -106,27 +99,10 @@ omap df <Esc>
 imap df <Esc>
 cmap df <Esc> 
 imap mf <cr>
-nmap <Leader>f <C-f>
-vmap <Leader>f <C-f>
-nmap <Leader>b <C-b>
-vmap <Leader>B <C-b>
 nmap <Leader>z :ZoomWin<cr>
-nmap <Leader>v <C-v>
-" nmap <Leader>r :source ~/.vimrc<cr>
-nmap <Leader>v <C-v>
 map <leader>n :NERDTree<cr>
-map <leader>t :Tlist<cr>
 map <Leader><leader>h <Plug>(easymotion-linebackward)
 map <Leader><leader>l <Plug>(easymotion-lineforward)
-
-let Tlist_Show_One_File = 1
-let Tlist_Exit_OnlyWindow = 1
-let Tlist_Sort_Type = "name"
-let Tlist_Ctags_Cmd = '/usr/bin/ctags'
-let Tlist_GainFocus_On_ToggleOpen = 1
-let Tlist_Use_Right_Window = 1
-"property of winmanager
-let g:winManagerWindowLayout='FileExplorer|TagList'
 
 "property of cscope
 set csprg=/usr/local/bin/cscope
@@ -134,23 +110,51 @@ set csprg=/usr/local/bin/cscope
 let g:SuperTabDefaultCompletionType = "<C-X><C-O>"
 let g:SuperTabRetainCompletionType = 2
 
+" set *(#) in visual mode to forward/backward search selected content
+vnoremap * y/<C-r>0<CR>
+vnoremap # y?<C-r>0<CR>
+
 "properties of matlab"
 source $VIMRUNTIME/macros/matchit.vim
 nmap <Leader>w :wa<cr>
 nmap <Leader>q :q<cr>
 nmap <Leader>x :x<cr>
-nmap <Leader>Q :q!<cr>
-"indent-guide"
-"" 从第二层开始可视化显示缩进
-let g:indent_guides_start_level=1
-" 色块宽度
-let g:indent_guides_guide_size=1
-:nmap <silent> <Leader>d <Plug>IndentGuidesToggle
-" 设置插件 indexer 调用 ctags 的参数
-" " 默认 --c++-kinds=+p+l，重新设置为 --c++-kinds=+p+l+x+c+d+e+f+g+m+n+s+t+u+v
-" " 默认 --fields=+iaS 不满足 YCM 要求，需改为 --fields=+iaSl
-let g:indexer_ctagsCommandLineOptions="--c++-kinds=+p+l+x+c+d+e+f+g+m+n+s+t+u+v --fields=+iaSl --extra=+q"""
 
+"set <leader>p to toggle paste mode
+nmap <leader>p :set paste!<BAR>set paste?<CR>
+
+" "" 从第二层开始可视化显示缩进
+" let g:indent_guides_start_level=1
+" " 色块宽度
+" let g:indent_guides_guide_size=1
+" :nmap <silent> <Leader>d <Plug>IndentGuidesToggle
+" " 设置插件 indexer 调用 ctags 的参数
+" " " 默认 --c++-kinds=+p+l，重新设置为 --c++-kinds=+p+l+x+c+d+e+f+g+m+n+s+t+u+v
+" " " 默认 --fields=+iaS 不满足 YCM 要求，需改为 --fields=+iaSl
+
+nnoremap <silent><Leader>g :Grep<CR>
+"auto-completion"
+set completeopt=longest,menu
+set rtp+=~/.vim/bundle/vundle/
+call vundle#rc()
+
+"Plugins
+Plugin 'airblade/vim-gitgutter'
+nnoremap <leader><leader>n :GitGutterNextHunk<CR>
+nnoremap <leader><leader>p :GitGutterPrevHunk<CR>
+let g:gitgutter_max_signs = 10000
+Plugin 'DfrankUtil'
+Plugin 'gmarik/vundle'
+Plugin 'gregsexton/gitv'
+Plugin 'kshenoy/vim-signature'
+Plugin 'Lokaltog/vim-easymotion'
+Plugin 'Lokaltog/vim-powerline'
+set guifont=PowerlineSymbols\ for\ Powerline
+set nocompatible
+set t_Co=256
+set encoding=utf-8
+let g:Powerline_symbols = 'fancy'
+Plugin 'majutsushi/tagbar'
 "tagbar"
 let tagbar_left=1 
 nnoremap <Leader>tb :TagbarToggle<CR> 
@@ -188,54 +192,16 @@ let g:tagbar_type_cpp = {
          \ 'union'     : 'u'
      \ }
 \ }
-
-
-nnoremap <silent><Leader>g :Grep<CR>
-"auto-completion"
-set completeopt=longest,menu
-set rtp+=~/.vim/bundle/vundle/
-call vundle#rc()
-Plugin 'airblade/vim-gitgutter'
-Plugin 'DfrankUtil'
-Plugin 'gmarik/vundle'
-Plugin 'gregsexton/gitv'
-Plugin 'kshenoy/vim-signature'
-Plugin 'Lokaltog/vim-easymotion'
-Plugin 'Lokaltog/vim-powerline'
-Plugin 'majutsushi/tagbar'
 Plugin 'Raimondi/delimitMate'
 Plugin 'rdnetto/YCM-Generator'
 Plugin 'scrooloose/nerdtree'
 Plugin 'syntastic'
-Plugin 'taglist.vim'
-Plugin 'tpope/vim-commentary'
-Plugin 'tpope/vim-fugitive'
-Plugin 'tpope/vim-markdown'
-Plugin 'tpope/vim-surround'
-Plugin 'Valloric/YouCompleteMe'
-Plugin 'vimprj'
-Plugin 'vim-scripts/indexer.tar.gz'
-Plugin 'Yggdroot/indentLine'
-Plugin 'ZoomWin'
-Plugin 'terryma/vim-multiple-cursors'
-Plugin 'ctrlpvim/ctrlp.vim'
-Plugin 'dyng/ctrlsf.vim'
-
-"for vim-commetary"
-autocmd FileType python,shell set commentstring=#\ %s
-"for gitgutter
-let g:gitgutter_max_signs = 10000
-"for syntastic and YouCompleteMe
-let g:ycm_error_symbol='>>'  
-let g:ycm_warning_symbol='>'
-"let g:syntastic_enable_balloons = 1
+let g:syntastic_cpp_compiler_options = '-std=c++11 -stdlib=libstdc++'
 let g:syntastic_check_on_open = 1
 let g:syntastic_cpp_include_dirs = ['/usr/include/'] 
 let g:syntastic_cpp_remove_include_errors = 1
 let g:syntastic_cpp_check_header = 1
 let g:syntastic_cpp_compiler = 'clang++'
-"highlight SyntasticErrorSign guifg=white guibg=black
-
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 0
 let g:syntastic_loc_list_height = 5
@@ -251,9 +217,28 @@ function! ToggleErrors()
     Errors
   endif
 endfunction
-  
 
-let g:syntastic_cpp_compiler_options = '-std=c++11 -stdlib=libstdc++'
+Plugin 'taglist.vim'
+map <leader>t :Tlist<cr>
+let Tlist_Show_One_File = 1
+let Tlist_Exit_OnlyWindow = 1
+let Tlist_Sort_Type = "name"
+let Tlist_Ctags_Cmd = '/usr/bin/ctags'
+let Tlist_GainFocus_On_ToggleOpen = 1
+let Tlist_Use_Right_Window = 1
+
+Plugin 'tpope/vim-commentary'
+autocmd FileType python,shell set commentstring=#\ %s
+
+Plugin 'tpope/vim-fugitive'
+
+Plugin 'tpope/vim-markdown'
+
+Plugin 'tpope/vim-surround'
+
+Plugin 'Valloric/YouCompleteMe'
+let g:ycm_error_symbol='>>'  
+let g:ycm_warning_symbol='>'
 let g:ycm_global_ycm_extra_conf = '~/.ycm_extra_conf.py'  
 "开启基于tag的补全，可以在这之后添加需要的标签路径  
 let g:ycm_collect_identifiers_from_tags_files = 1  
@@ -278,17 +263,19 @@ let g:ycm_use_ultisnips_completer=0
 nnoremap <leader>gc :YcmCompleter GoToDeclaration<CR>  
 nnoremap <leader>gf :YcmCompleter GoToDefinition<CR>  
 nnoremap <leader>gg :YcmCompleter GoToDefinitionElseDeclaration<CR>  
+Plugin 'vimprj'
+Plugin 'vim-scripts/indexer.tar.gz'
+Plugin 'Yggdroot/indentLine'
+Plugin 'ZoomWin'
+Plugin 'terryma/vim-multiple-cursors'
+Plugin 'ctrlpvim/ctrlp.vim'
+let g:ctrlp_map = '<leader>a'
+let g:ctrlp_cmd = 'CtrlP'
 
-"GitGutter
-nnoremap <leader><leader>n :GitGutterNextHunk<CR>
-nnoremap <leader><leader>p :GitGutterPrevHunk<CR>
-
+Plugin 'dyng/ctrlsf.vim'
 vnoremap <leader>cf y:CtrlSF <C-r>0<CR>
 nnoremap <leader>cf yiw:CtrlSF <C-r>0<CR>
 
-" set *(#) in visual mode to forward/backward search selected content
-vnoremap * y/<C-r>0<CR>
-vnoremap # y?<C-r>0<CR>
+  
 
-"set <leader>p to toggle paste mode
-nmap <leader>p :set paste!<BAR>set paste?<CR>
+
