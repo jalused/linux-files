@@ -94,10 +94,10 @@ nmap  J <C-w>j
 nmap  H <C-w>h
 nmap  K <C-w>k
 nmap  L <C-w>l
-map  fj <Esc>
-omap fj <Esc>
-imap fj <Esc>
-cmap fj <Esc> 
+map  df <Esc>
+omap df <Esc>
+imap df <Esc>
+cmap df <Esc> 
 imap mf <cr>
 nmap <Leader>z :ZoomWin<cr>
 map <leader>n :NERDTree<cr>
