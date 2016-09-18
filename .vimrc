@@ -268,6 +268,11 @@ Plugin 'vim-scripts/indexer.tar.gz'
 Plugin 'Yggdroot/indentLine'
 Plugin 'ZoomWin'
 Plugin 'terryma/vim-multiple-cursors'
+let g:multi_cursor_quit_key='<C-c>'
+nnoremap <C-c> :call multiple_cursors#quit()<CR>
+let g:multi_cursor_exit_from_visual_mode=0
+let g:multi_cursor_exit_from_insert_mode=0
+
 Plugin 'ctrlpvim/ctrlp.vim'
 let g:ctrlp_map = '<leader>a'
 let g:ctrlp_cmd = 'CtrlP'
