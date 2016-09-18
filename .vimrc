@@ -94,15 +94,40 @@ nmap  J <C-w>j
 nmap  H <C-w>h
 nmap  K <C-w>k
 nmap  L <C-w>l
-map  df <Esc>
-omap df <Esc>
-imap df <Esc>
-cmap df <Esc> 
+map  fj <Esc>
+omap fj <Esc>
+imap fj <Esc>
+cmap fj <Esc> 
 imap mf <cr>
 nmap <Leader>z :ZoomWin<cr>
 map <leader>n :NERDTree<cr>
 map <Leader><leader>h <Plug>(easymotion-linebackward)
 map <Leader><leader>l <Plug>(easymotion-lineforward)
+" set <leader><leader>r to compile and run 
+autocmd FileType python map <leader><leader>r :w<cr>:!python %<cr>
+autocmd FileType sh map <leader><leader>r :call RunSH()<cr>
+autocmd FileType c map <leader><leader>r :call CompileRunGcc()<cr>
+autocmd FileType cpp map <leader><leader>r :call CompileRunGpp()<cr>
+
+"function to compile and runn C file
+func! CompileRunGcc()
+  exec "w"
+  exec "!gcc % -o %<"
+  exec "! ./%<"
+endfunc
+
+"function to compile and runn C++ file
+func! CompileRunGpp()
+  exec "w"
+  exec "!g++ % -o %<"
+  exec "! ./%<"
+endfunc
+
+func! RunSH()
+  exec "w"
+  exec "!chmod a+x %"
+  exec "!./%"
+endfunc
 
 "property of cscope
 set csprg=/usr/local/bin/cscope
