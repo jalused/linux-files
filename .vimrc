@@ -27,13 +27,13 @@ set ignorecase		" ignore case when searching
 set smartcase		" ignore case if search pattern is all lowercase,case-sensitive otherwise
 set smarttab		" insert tabs on the start of a line according to context
 
-fun! Replace() 
-    let s:word = input("Replace " . expand('<cword>') . " with:") 
-    :exe 'bufdo! %s/\<' . expand('<cword>') . '\>/' . s:word . '/ge' 
-    :unlet! s:word 
-endfun 
+" fun! Replace() 
+"     let s:word = input("Replace " . expand('<cword>') . " with:") 
+"     :exe 'bufdo! %s/\<' . expand('<cword>') . '\>/' . s:word . '/ge' 
+"     :unlet! s:word 
+" endfun 
 
-map <leader>r :call Replace()<CR>
+" map <leader>r :call Replace()<CR>
 
 " open the error console
 map <leader>cc :botright cope<CR> 
