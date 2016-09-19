@@ -27,13 +27,13 @@ set ignorecase		" ignore case when searching
 set smartcase		" ignore case if search pattern is all lowercase,case-sensitive otherwise
 set smarttab		" insert tabs on the start of a line according to context
 
-fun! Replace() 
-    let s:word = input("Replace " . expand('<cword>') . " with:") 
-    :exe 'bufdo! %s/\<' . expand('<cword>') . '\>/' . s:word . '/ge' 
-    :unlet! s:word 
-endfun 
+" fun! Replace() 
+"     let s:word = input("Replace " . expand('<cword>') . " with:") 
+"     :exe 'bufdo! %s/\<' . expand('<cword>') . '\>/' . s:word . '/ge' 
+"     :unlet! s:word 
+" endfun 
 
-map <leader>r :call Replace()<CR>
+" map <leader>r :call Replace()<CR>
 
 " open the error console
 map <leader>cc :botright cope<CR> 
@@ -103,6 +103,31 @@ nmap <Leader>z :ZoomWin<cr>
 map <leader>n :NERDTree<cr>
 map <Leader><leader>h <Plug>(easymotion-linebackward)
 map <Leader><leader>l <Plug>(easymotion-lineforward)
+" set <leader><leader>r to compile and run 
+autocmd FileType python map <leader><leader>r :w<cr>:!python %<cr>
+autocmd FileType sh map <leader><leader>r :call RunSH()<cr>
+autocmd FileType c map <leader><leader>r :call CompileRunGcc()<cr>
+autocmd FileType cpp map <leader><leader>r :call CompileRunGpp()<cr>
+
+"function to compile and runn C file
+func! CompileRunGcc()
+  exec "w"
+  exec "!gcc % -o %<"
+  exec "! ./%<"
+endfunc
+
+"function to compile and runn C++ file
+func! CompileRunGpp()
+  exec "w"
+  exec "!g++ % -o %<"
+  exec "! ./%<"
+endfunc
+
+func! RunSH()
+  exec "w"
+  exec "!chmod a+x %"
+  exec "!./%"
+endfunc
 
 "property of cscope
 set csprg=/usr/local/bin/cscope
