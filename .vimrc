@@ -20,54 +20,58 @@ autocmd BufNewFile *.cpp,*.[ch],*.sh,*.py,*.java exec ":call SetTitle()"
 func SetTitle() 
     "如果文件类型为.sh文件 
     if &filetype == 'sh' 
-        call setline(1, "\#########################################################################") 
-        call append(line("."), "\# File Name: ".expand("%")) 
-        call append(line(".")+1, "\# Author: Liang Jiang") 
-        call append(line(".")+2, "\# mail: jiangliang0811@gmail.com") 
-        call append(line(".")+3, "\# Created Time: ".strftime("%c")) 
-        call append(line(".")+4, "\#########################################################################") 
-        call append(line(".")+5, "\#!/usr/bin/env bash") 
-        call append(line(".")+6, "") 
+        call setline(1, "\#!/usr/bin/env bash") 
+        call append(line("."), "\###############################################")
+        call append(line(".")+1, "\# File Name: ".expand("%")) 
+        call append(line(".")+2, "\# Author: Liang Jiang") 
+        call append(line(".")+3, "\# mail: jiangliang0811@gmail.com") 
+        call append(line(".")+4, "\# Created Time: ".strftime("%c")) 
+        call append(line(".")+5, "\# Description: ")
+        call append(line(".")+6, "\###############################################")
+        call append(line(".")+7, "") 
         normal G
      
     elseif &filetype == "python" 
-        call setline(1, "\#########################################################################") 
-        call append(line("."), "\# File Name: ".expand("%")) 
-        call append(line(".")+1, "\# Author: Liang Jiang") 
-        call append(line(".")+2, "\# mail: jiangliang0811@gmail.com") 
-        call append(line(".")+3, "\# Created Time: ".strftime("%c")) 
-        call append(line(".")+4, "\#########################################################################") 
-        call append(line(".")+5, "\#!/usr/bin/env python") 
-        call append(line(".")+6, "") 
-        call append(line(".")+7, "def main():") 
-        call append(line(".")+8, "   ") 
-        call append(line(".")+9, "if \"__main__\" == __name__:") 
-        call append(line(".")+10, "  main()") 
-        normal 9G
+        call setline(1, "\#!/usr/bin/env python") 
+        call append(line("."), "\#coding=utf-8") 
+        call append(line(".")+1, "\###############################################")
+        call append(line(".")+2, "\# File Name: ".expand("%")) 
+        call append(line(".")+3, "\# Author: Liang Jiang") 
+        call append(line(".")+4, "\# mail: jiangliang0811@gmail.com") 
+        call append(line(".")+5, "\# Created Time: ".strftime("%c")) 
+        call append(line(".")+6, "\# Description: ")
+        call append(line(".")+7, "\###############################################")
+        call append(line(".")+8, "") 
+        call append(line(".")+9, "def main():") 
+        call append(line(".")+10, "   ") 
+        call append(line(".")+11, "if \"__main__\" == __name__:") 
+        call append(line(".")+12, "  main()") 
+        normal 11G
         
 
     elseif &filetype == 'cpp' || &filetype == 'c'
-        call setline(1, "/*************************************************************************") 
-        call append(line("."), "    > File Name: ".expand("%")) 
-        call append(line(".")+1, "    > Author: ma6174") 
-        call append(line(".")+2, "    > Mail: ma6174@163.com ") 
-        call append(line(".")+3, "    > Created Time: ".strftime("%c")) 
-        call append(line(".")+4, " ************************************************************************/") 
-        call append(line(".")+5, "")
+        call setline(1, "/*")
+        call append(line("."), "* File Name: ".expand("%")) 
+        call append(line(".")+1, "* Author: Liang Jiang") 
+        call append(line(".")+2, "* Mail: jiangliang0811@gmail.com") 
+        call append(line(".")+3, "* Created Time: ".strftime("%c")) 
+        call append(line(".")+4, "* Description: ")
+        call append(line(".")+5,"*/")
+        call append(line(".")+6, "")
 
         if &filetype == 'cpp'
-            call append(line(".")+6, "#include<iostream>")
-            call append(line(".")+7, "")
+            call append(line(".")+7, "#include<iostream>")
+            call append(line(".")+8, "")
         endif
         if &filetype == 'c'
-            call append(line(".")+6, "#include<stdio.h>")
-            call append(line(".")+7, "")
+            call append(line(".")+7, "#include<stdio.h>")
+            call append(line(".")+8, "")
         endif
-        call append(line(".")+8, "int main() {") 
-        call append(line(".")+9, "  ") 
-        call append(line(".")+10, "  return 0;") 
-        call append(line(".")+11,"}")
-        normal 9G 
+        call append(line(".")+9, "int main() {") 
+        call append(line(".")+10, "  ") 
+        call append(line(".")+11, "  return 0;") 
+        call append(line(".")+12,"}")
+        normal 10G 
     endif
     "新建文件后，自动定位到文件末尾
 endfunc 
