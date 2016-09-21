@@ -45,7 +45,7 @@ func SetTitle()
         call append(line(".")+9, "def main():") 
         call append(line(".")+10, "   ") 
         call append(line(".")+11, "if \"__main__\" == __name__:") 
-        call append(line(".")+12, "  main()") 
+        call append(line(".")+12, "    main()") 
         normal 11G
         
 
@@ -352,7 +352,7 @@ let g:ycm_key_invoke_completion='<C-d>'
 " let g:ycm_min_num_of_chars_for_completion=1  
 "不查询ultisnips提供的代码模板补全，如果需要，设置成1即可  
 let g:ycm_use_ultisnips_completer=0
-inoremap <expr> <Space> pumvisible() ? "\<C-y>" : "\<Space>"
+inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<CR>"
 " let g:ycm_min_num_of_chars_for_completion=5
 "let g:ycm_auto_trigger = 0
 "设置跳转的快捷键，可以跳转到definition和declaration  
