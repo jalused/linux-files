@@ -14,7 +14,62 @@ filetype plugin on
 set history=1000
 "背景颜色为黑色
 set background=dark
+"新建.c,.h,.sh,.java文件，自动插入文件头 
+autocmd BufNewFile *.cpp,*.[ch],*.sh,*.py,*.java exec ":call SetTitle()" 
+""定义函数SetTitle，自动插入文件头 
+func SetTitle() 
+    "如果文件类型为.sh文件 
+    if &filetype == 'sh' 
+        call setline(1, "\#########################################################################") 
+        call append(line("."), "\# File Name: ".expand("%")) 
+        call append(line(".")+1, "\# Author: Liang Jiang") 
+        call append(line(".")+2, "\# mail: jiangliang0811@gmail.com") 
+        call append(line(".")+3, "\# Created Time: ".strftime("%c")) 
+        call append(line(".")+4, "\#########################################################################") 
+        call append(line(".")+5, "\#!/usr/bin/env bash") 
+        call append(line(".")+6, "") 
+        normal G
+     
+    elseif &filetype == "python" 
+        call setline(1, "\#########################################################################") 
+        call append(line("."), "\# File Name: ".expand("%")) 
+        call append(line(".")+1, "\# Author: Liang Jiang") 
+        call append(line(".")+2, "\# mail: jiangliang0811@gmail.com") 
+        call append(line(".")+3, "\# Created Time: ".strftime("%c")) 
+        call append(line(".")+4, "\#########################################################################") 
+        call append(line(".")+5, "\#!/usr/bin/env python") 
+        call append(line(".")+6, "") 
+        call append(line(".")+7, "def main():") 
+        call append(line(".")+8, "   ") 
+        call append(line(".")+9, "if \"__main__\" == __name__:") 
+        call append(line(".")+10, "  main()") 
+        normal 9G
+        
 
+    elseif &filetype == 'cpp' || &filetype == 'c'
+        call setline(1, "/*************************************************************************") 
+        call append(line("."), "    > File Name: ".expand("%")) 
+        call append(line(".")+1, "    > Author: ma6174") 
+        call append(line(".")+2, "    > Mail: ma6174@163.com ") 
+        call append(line(".")+3, "    > Created Time: ".strftime("%c")) 
+        call append(line(".")+4, " ************************************************************************/") 
+        call append(line(".")+5, "")
+
+        if &filetype == 'cpp'
+            call append(line(".")+6, "#include<iostream>")
+            call append(line(".")+7, "")
+        endif
+        if &filetype == 'c'
+            call append(line(".")+6, "#include<stdio.h>")
+            call append(line(".")+7, "")
+        endif
+        call append(line(".")+8, "int main() {") 
+        call append(line(".")+9, "  ") 
+        call append(line(".")+10,"}")
+        normal 9G 
+    endif
+    "新建文件后，自动定位到文件末尾
+endfunc 
 " auto reload vimrc when editing it
 autocmd! bufwritepost .vimrc source ~/.vimrc
 
@@ -252,6 +307,7 @@ let Tlist_Ctags_Cmd = '/usr/bin/ctags'
 let Tlist_GainFocus_On_ToggleOpen = 1
 let Tlist_Use_Right_Window = 1
 
+
 Plugin 'tpope/vim-commentary'
 autocmd FileType python,shell set commentstring=#\ %s
 
@@ -262,6 +318,11 @@ Plugin 'tpope/vim-markdown'
 Plugin 'tpope/vim-surround'
 
 Plugin 'Valloric/YouCompleteMe'
+let g:ycm_filetype_blacklist = {
+      \ 'tagbar' : 1,
+      \ 'nerdtree' : 1,
+      \ 'vimrc' : 1,
+      \}
 let g:ycm_error_symbol='>>'  
 let g:ycm_warning_symbol='>'
 let g:ycm_global_ycm_extra_conf = '~/.ycm_extra_conf.py'  
