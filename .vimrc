@@ -65,7 +65,8 @@ func SetTitle()
         endif
         call append(line(".")+8, "int main() {") 
         call append(line(".")+9, "  ") 
-        call append(line(".")+10,"}")
+        call append(line(".")+10, "  return 0;") 
+        call append(line(".")+11,"}")
         normal 9G 
     endif
     "新建文件后，自动定位到文件末尾
