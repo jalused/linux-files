@@ -60,11 +60,11 @@ func SetTitle()
         call append(line(".")+6, "")
 
         if &filetype == 'cpp'
-            call append(line(".")+7, "#include<iostream>")
+            call append(line(".")+7, "#include <iostream>")
             call append(line(".")+8, "")
         endif
         if &filetype == 'c'
-            call append(line(".")+7, "#include<stdio.h>")
+            call append(line(".")+7, "#include <stdio.h>")
             call append(line(".")+8, "")
         endif
         call append(line(".")+9, "int main() {") 
@@ -339,15 +339,20 @@ let g:ycm_seed_identifiers_with_syntax = 1
 set completeopt-=preview  
 "不显示开启vim时检查ycm_extra_conf文件的信息  
 let g:ycm_confirm_extra_conf=0  
+"注释和字符串的的补全
+let g:ycm_collect_identifiers_from_comments_and_strings = 0
 "每次重新生成匹配项，禁止缓存匹配项  
 "let g:ycm_cache_omnifunc=0  
 "在注释中也可以补全  
-"let g:ycm_complete_in_comments=1  
+let g:ycm_complete_in_comments=1  
+"在字符串中也可以补全
+let g:ycm_complete_in_strings = 1
 let g:ycm_key_invoke_completion='<C-d>'
 "输入第一个字符就开始补全  
 " let g:ycm_min_num_of_chars_for_completion=1  
 "不查询ultisnips提供的代码模板补全，如果需要，设置成1即可  
 let g:ycm_use_ultisnips_completer=0
+inoremap <expr> <Space> pumvisible() ? "\<C-y>" : "\<Space>"
 " let g:ycm_min_num_of_chars_for_completion=5
 "let g:ycm_auto_trigger = 0
 "设置跳转的快捷键，可以跳转到definition和declaration  
