@@ -322,7 +322,7 @@ Plugin 'Valloric/YouCompleteMe'
 let g:ycm_filetype_blacklist = {
       \ 'tagbar' : 1,
       \ 'nerdtree' : 1,
-      \ 'vimrc' : 1,
+      \ 'vim' : 1,
       \}
 let g:ycm_error_symbol='>>'  
 let g:ycm_warning_symbol='>'
