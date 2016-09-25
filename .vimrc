@@ -174,7 +174,9 @@ map <Leader><leader>l <Plug>(easymotion-lineforward)
 autocmd FileType python map <leader><leader>r :w<cr>:!python %<cr>
 autocmd FileType sh map <leader><leader>r :call RunSH()<cr>
 autocmd FileType c map <leader><leader>r :call CompileRunGcc()<cr>
+autocmd FileType c map <leader><leader>d :call DebugGcc()<cr>
 autocmd FileType cpp map <leader><leader>r :call CompileRunGpp()<cr>
+autocmd FileType cpp map <leader><leader>d :call DebugGpp()<cr>
 
 "function to compile and runn C file
 func! CompileRunGcc()
@@ -182,12 +184,23 @@ func! CompileRunGcc()
   exec "!gcc % -o %<"
   exec "! ./%<"
 endfunc
+func!  DebugGcc()
+exec "w"
+exec "!gcc % -o %< -g"
+exec "!cgdb %<"
+endfunc
+
 
 "function to compile and runn C++ file
 func! CompileRunGpp()
   exec "w"
   exec "!g++ % -o %<"
   exec "! ./%<"
+endfunc
+func!  DebugGpp()
+exec "w"
+exec "!g++ % -o %< -g"
+exec "!cgdb %<"
 endfunc
 
 func! RunSH()
