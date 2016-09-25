@@ -62,16 +62,23 @@ func SetTitle()
         if &filetype == 'cpp'
             call append(line(".")+7, "#include <iostream>")
             call append(line(".")+8, "")
+            call append(line(".")+9, "using namespace std;")
+            call append(line(".")+10, "")
+            call append(line(".")+11, "int main() {") 
+            call append(line(".")+12, "  ") 
+            call append(line(".")+13, "  return 0;") 
+            call append(line(".")+14,"}")
+            normal 12G 
         endif
         if &filetype == 'c'
             call append(line(".")+7, "#include <stdio.h>")
             call append(line(".")+8, "")
+            call append(line(".")+9, "int main() {") 
+            call append(line(".")+10, "  ") 
+            call append(line(".")+11, "  return 0;") 
+            call append(line(".")+12,"}")
+            normal 10G 
         endif
-        call append(line(".")+9, "int main() {") 
-        call append(line(".")+10, "  ") 
-        call append(line(".")+11, "  return 0;") 
-        call append(line(".")+12,"}")
-        normal 10G 
     endif
     "新建文件后，自动定位到文件末尾
 endfunc 
