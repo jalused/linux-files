@@ -1,0 +1,13 @@
+:set arrowstyle=highlight
+:set autosourcereload
+:set ignorecase
+:set showtgdbcommands
+:set tabstop=2
+:imap df <Esc>
+:map r <F5>
+:map c <F6>
+:map f <F7>
+:map l <F8>
+:map s <F10>
+:highlight Breakpoint cterm=bold ctermfg=Yellow ctermbg=Black
+:highlight DisabledBreakpoint cterm=bold  ctermfg=Red
