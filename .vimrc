@@ -201,7 +201,7 @@ vnoremap # y?<C-r>0<CR>
 
 "properties of matlab"
 source $VIMRUNTIME/macros/matchit.vim
-nmap <Leader>w :wa<cr>
+nmap <Leader>w :wa!<cr>
 nmap <Leader>q :q<cr>
 nmap <Leader><leader>q :qa<cr>
 nmap <Leader>x :xa<cr>
