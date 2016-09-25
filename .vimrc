@@ -234,6 +234,7 @@ Plugin 'DfrankUtil'
 Plugin 'gmarik/vundle'
 Plugin 'gregsexton/gitv'
 Plugin 'kshenoy/vim-signature'
+
 Plugin 'Lokaltog/vim-easymotion'
 Plugin 'Lokaltog/vim-powerline'
 set guifont=PowerlineSymbols\ for\ Powerline
@@ -243,9 +244,10 @@ set encoding=utf-8
 let g:Powerline_symbols = 'fancy'
 Plugin 'majutsushi/tagbar'
 "tagbar"
-let tagbar_left=1 
-nnoremap <Leader>tb :TagbarToggle<CR> 
-let tagbar_width=32 
+let tagbar_left=0 
+nnoremap <Leader>t :TagbarToggle<CR> 
+let g:tagbar_autofocus=1
+let tagbar_width=40 
 let g:tagbar_compact=1
 let g:tagbar_type_cpp = {
     \ 'kinds' : [
@@ -280,7 +282,6 @@ let g:tagbar_type_cpp = {
      \ }
 \ }
 Plugin 'Raimondi/delimitMate'
-Plugin 'rdnetto/YCM-Generator'
 Plugin 'scrooloose/nerdtree'
 Plugin 'syntastic'
 let g:syntastic_cpp_compiler_options = '-std=c++11 -stdlib=libstdc++'
@@ -305,24 +306,10 @@ function! ToggleErrors()
   endif
 endfunction
 
-Plugin 'taglist.vim'
-map <leader>t :Tlist<cr>
-let Tlist_Show_One_File = 1
-let Tlist_Exit_OnlyWindow = 1
-let Tlist_Sort_Type = "name"
-let Tlist_Ctags_Cmd = '/usr/bin/ctags'
-let Tlist_GainFocus_On_ToggleOpen = 1
-let Tlist_Use_Right_Window = 1
-
-
 Plugin 'tpope/vim-commentary'
 autocmd FileType python,shell set commentstring=#\ %s
 
 Plugin 'tpope/vim-fugitive'
-
-Plugin 'tpope/vim-markdown'
-
-Plugin 'tpope/vim-surround'
 
 Plugin 'Valloric/YouCompleteMe'
 let g:ycm_filetype_blacklist = {
