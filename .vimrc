@@ -29,6 +29,9 @@ func SetTitle()
         call append(line(".")+5, "\# Description: ")
         call append(line(".")+6, "\###############################################")
         call append(line(".")+7, "") 
+        call append(line(".")+8, "set -e")
+        call append(line(".")+9, "set -x")
+        call append(line(".")+10, "")
         normal G
      
     elseif &filetype == "python" 
@@ -42,11 +45,8 @@ func SetTitle()
         call append(line(".")+6, "\# Description: ")
         call append(line(".")+7, "\###############################################")
         call append(line(".")+8, "") 
-        call append(line(".")+9, "def main():") 
-        call append(line(".")+10, "   ") 
-        call append(line(".")+11, "if \"__main__\" == __name__:") 
-        call append(line(".")+12, "    main()") 
-        normal 11G
+        call append(line(".")+9, "") 
+        normal G
         
 
     elseif &filetype == 'cpp' || &filetype == 'c'
