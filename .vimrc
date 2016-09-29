@@ -45,8 +45,19 @@ func SetTitle()
         call append(line(".")+6, "\# Description: ")
         call append(line(".")+7, "\###############################################")
         call append(line(".")+8, "") 
-        call append(line(".")+9, "") 
-        normal G
+        call append(line(".")+9, "import argparse") 
+        call append(line(".")+10, "")
+        call append(line(".")+11, "def argparser():")
+        call append(line(".")+12, "    parser = argparse.ArgumentParser()")
+        call append(line(".")+13, "    return parser")
+        call append(line(".")+14, "")
+        call append(line(".")+15, "def main():")
+        call append(line(".")+16, "    parser = argparser()")
+        call append(line(".")+17, "    args = parser.parse_args()")
+        call append(line(".")+18, "")
+        call append(line(".")+19, "if \"__main__\" == __name__:")
+        call append(line(".")+20, "    main()")
+        normal 17G
         
 
     elseif &filetype == 'cpp' || &filetype == 'c'
