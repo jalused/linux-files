@@ -75,7 +75,7 @@ func SetTitle()
             call append(line(".")+8, "")
             call append(line(".")+9, "using namespace std;")
             call append(line(".")+10, "")
-            call append(line(".")+11, "int main() {") 
+            call append(line(".")+11, "int main(int argc, char* argv[]) {") 
             call append(line(".")+12, "  ") 
             call append(line(".")+13, "  return 0;") 
             call append(line(".")+14,"}")
@@ -84,7 +84,7 @@ func SetTitle()
         if &filetype == 'c'
             call append(line(".")+7, "#include <stdio.h>")
             call append(line(".")+8, "")
-            call append(line(".")+9, "int main() {") 
+            call append(line(".")+9, "int main(int argc, char* argv[]) {") 
             call append(line(".")+10, "  ") 
             call append(line(".")+11, "  return 0;") 
             call append(line(".")+12,"}")
@@ -182,18 +182,23 @@ map <leader>n :NERDTree<cr>
 map <Leader><leader>h <Plug>(easymotion-linebackward)
 map <Leader><leader>l <Plug>(easymotion-lineforward)
 " set <leader><leader>r to compile and run 
-autocmd FileType python map <leader><leader>r :w<cr>:!python %<cr>
+autocmd FileType python map <leader><leader>r :call RunPython()<cr>
 autocmd FileType sh map <leader><leader>r :call RunSH()<cr>
 autocmd FileType c map <leader><leader>r :call CompileRunGcc()<cr>
 autocmd FileType c map <leader><leader>d :call DebugGcc()<cr>
 autocmd FileType cpp map <leader><leader>r :call CompileRunGpp()<cr>
 autocmd FileType cpp map <leader><leader>d :call DebugGpp()<cr>
 
+func! RunPython()
+  exec "w"
+  exec "!cat ./.args/.%.args 2>/dev/null | xargs python %"
+endfunc
+
 "function to compile and runn C file
 func! CompileRunGcc()
   exec "w"
   exec "!gcc % -o %<"
-  exec "! ./%<"
+  exec "!cat ./.args/.%.args 2>/dev/null | xargs ./%<"
 endfunc
 func!  DebugGcc()
 exec "w"
@@ -206,7 +211,7 @@ endfunc
 func! CompileRunGpp()
   exec "w"
   exec "!g++ % -o %<"
-  exec "! ./%<"
+  exec "!cat ./.args/.%.args 2>/dev/null | xargs ./%<"
 endfunc
 func!  DebugGpp()
 exec "w"
@@ -217,7 +222,7 @@ endfunc
 func! RunSH()
   exec "w"
   exec "!chmod a+x %"
-  exec "!./%"
+  exec "!cat ./.args/.%.args 2>/dev/null | xargs ./%"
 endfunc
 
 "property of cscope
