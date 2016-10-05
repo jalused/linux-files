@@ -182,12 +182,12 @@ map <leader>n :NERDTree<cr>
 map <Leader><leader>h <Plug>(easymotion-linebackward)
 map <Leader><leader>l <Plug>(easymotion-lineforward)
 " set <leader><leader>r to compile and run 
-autocmd FileType python map <leader><leader>r :call RunPython()<cr>
-autocmd FileType sh map <leader><leader>r :call RunSH()<cr>
-autocmd FileType c map <leader><leader>r :call CompileRunGcc()<cr>
-autocmd FileType c map <leader><leader>d :call DebugGcc()<cr>
-autocmd FileType cpp map <leader><leader>r :call CompileRunGpp()<cr>
-autocmd FileType cpp map <leader><leader>d :call DebugGpp()<cr>
+autocmd FileType python map <leader>r :call RunPython()<cr>
+autocmd FileType sh map <leader>r :call RunSH()<cr>
+autocmd FileType c map <leader>r :call CompileRunGcc()<cr>
+autocmd FileType c map <leader>d :call DebugGcc()<cr>
+autocmd FileType cpp map <leader>r :call CompileRunGpp()<cr>
+autocmd FileType cpp map <leader>d :call DebugGpp()<cr>
 
 func! RunPython()
   exec "w"
