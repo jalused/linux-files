@@ -203,7 +203,7 @@ func! CompileGcc()
   exec "w"
   exec "AsyncRun gcc % -o %< -g"
   exec "vertical 80 copen"
-  " exec "wincmd w"
+  exec "wincmd w"
 endfunc
 
 func! RunGcc()
@@ -226,7 +226,7 @@ func! CompileGpp()
   exec "w"
   exec "AsyncRun g++ % -o %< -g"
   exec "vertical 80 copen"
-  " exec "wincmd w"
+  exec "wincmd w"
 
 endfunc
 func! RunGpp()
