@@ -114,11 +114,11 @@ set smarttab		" insert tabs on the start of a line according to context
 " map <leader>r :call Replace()<CR>
 
 " open the error console
-map <leader>cc :botright cope<CR> 
-" move to next error
-map <leader>] :cn<CR>
-" move to the prev error
-map <leader>[ :cp<CR>
+" map <leader>cc :botright cope<CR> 
+" " move to next error
+" map <leader>] :cn<CR>
+" " move to the prev error
+" map <leader>[ :cp<CR>
 
 "禁止光标闪烁"
 set gcr=a:block-blinkon0
@@ -184,45 +184,70 @@ map <Leader><leader>l <Plug>(easymotion-lineforward)
 " set <leader><leader>r to compile and run 
 autocmd FileType python map <leader>r :call RunPython()<cr>
 autocmd FileType sh map <leader>r :call RunSH()<cr>
-autocmd FileType c map <leader>r :call CompileRunGcc()<cr>
+autocmd FileType c map <leader>c :call CompileGcc()<cr>
+autocmd FileType c map <leader>r :call RunGcc()<cr>
 autocmd FileType c map <leader>d :call DebugGcc()<cr>
-autocmd FileType cpp map <leader>r :call CompileRunGpp()<cr>
+autocmd FileType cpp map <leader>c :call CompileGpp()<cr>
+autocmd FileType cpp map <leader>r :call RunGpp()<cr>
 autocmd FileType cpp map <leader>d :call DebugGpp()<cr>
 
 func! RunPython()
   exec "w"
-  exec "!cat ./.args/.%.args 2>/dev/null | xargs python %"
+  exec "AsyncRun! cat ./.args/.%.args 2>/dev/null | xargs python %"
+  exec "vertical 80 copen"
+  exec "wincmd w"
 endfunc
 
 "function to compile and runn C file
-func! CompileRunGcc()
+func! CompileGcc()
   exec "w"
-  exec "!gcc % -o %<"
-  exec "!cat ./.args/.%.args 2>/dev/null | xargs ./%<"
+  exec "AsyncRun gcc % -o %< -g"
+  exec "vertical 80 copen"
+  " exec "wincmd w"
+endfunc
+
+func! RunGcc()
+  exec "w"
+  " exec "AsyncRun gcc % -o %<"
+  exec "AsyncRun! cat ./.args/.%.args 2>/dev/null | xargs ./%<"
+  exec "vertical 80 copen"
+  exec "wincmd w"
+
 endfunc
 func!  DebugGcc()
-exec "w"
-exec "!gcc % -o %< -g"
-exec "!cgdb %<"
+  exec "w"
+  exec "!gcc % -o %< -g"
+  exec "!cgdb %<"
 endfunc
 
 
 "function to compile and runn C++ file
-func! CompileRunGpp()
+func! CompileGpp()
   exec "w"
-  exec "!g++ % -o %<"
-  exec "!cat ./.args/.%.args 2>/dev/null | xargs ./%<"
+  exec "AsyncRun g++ % -o %< -g"
+  exec "vertical 80 copen"
+  " exec "wincmd w"
+
 endfunc
+func! RunGpp()
+  exec "w"
+  exec "AsyncRun! cat ./.args/.%.args 2>/dev/null | xargs ./%<"
+  exec "vertical 80 copen"
+  exec "wincmd w"
+endfunc
+
 func!  DebugGpp()
-exec "w"
-exec "!g++ % -o %< -g"
-exec "!cgdb %<"
+  exec "w"
+  exec "!g++ % -o %< -g"
+  exec "!cgdb %<"
 endfunc
 
 func! RunSH()
   exec "w"
   exec "!chmod a+x %"
-  exec "!cat ./.args/.%.args 2>/dev/null | xargs ./%"
+  exec "AsyncRun! cat ./.args/.%.args 2>/dev/null | xargs ./%"
+  exec "vertical 80 copen"
+  exec "wincmd w"
 endfunc
 
 "property of cscope
@@ -399,9 +424,9 @@ let g:ctrlp_map = '<leader>a'
 let g:ctrlp_cmd = 'CtrlP'
 
 Plugin 'dyng/ctrlsf.vim'
-vnoremap <leader>cf y:CtrlSF <C-r>0<CR>
-nnoremap <leader>cf yiw:CtrlSF <C-r>0<CR>
+vnoremap <leader>f y:CtrlSF <C-r>0<CR>
+nnoremap <leader>f yiw:CtrlSF <C-r>0<CR>
 
-  
+Plugin 'skywind3000/asyncrun.vim'  
 
 
