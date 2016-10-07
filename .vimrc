@@ -249,6 +249,16 @@ func! RunSH()
   exec "vertical 80 copen"
   exec "wincmd w"
 endfunc
+au BufEnter * call MyLastWindow()
+function! MyLastWindow()
+  " if the window is quickfix go on
+  if &buftype=="quickfix"
+    " if this window is last on screen quit without warning
+    if winbufnr(2) == -1
+      quit!
+    endif
+  endif
+endfunction
 
 "property of cscope
 set csprg=/usr/local/bin/cscope
