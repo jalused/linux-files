@@ -3,7 +3,7 @@
 :set ignorecase
 :set showtgdbcommands
 :set tabstop=2
-:imap df <Esc>
+:imap fj <Esc>
 :map r <F5>
 :map c <F6>
 :map f <F7>
