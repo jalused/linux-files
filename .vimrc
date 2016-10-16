@@ -172,11 +172,10 @@ nmap  J <C-w>j
 nmap  H <C-w>h
 nmap  K <C-w>k
 nmap  L <C-w>l
-map  df <Esc>
-omap df <Esc>
-imap df <Esc>
-cmap df <Esc> 
-imap mf <cr>
+map  fj <Esc>
+omap fj <Esc>
+imap fj <Esc>
+cmap fj <Esc> 
 nmap <Leader>z :ZoomWin<cr>
 map <leader>n :NERDTree<cr>
 map <Leader><leader>h <Plug>(easymotion-linebackward)
@@ -184,10 +183,8 @@ map <Leader><leader>l <Plug>(easymotion-lineforward)
 " set <leader><leader>r to compile and run 
 autocmd FileType python map <leader>r :call RunPython()<cr>
 autocmd FileType sh map <leader>r :call RunSH()<cr>
-autocmd FileType c map <leader>c :call CompileGcc()<cr>
 autocmd FileType c map <leader>r :call RunGcc()<cr>
 autocmd FileType c map <leader>d :call DebugGcc()<cr>
-autocmd FileType cpp map <leader>c :call CompileGpp()<cr>
 autocmd FileType cpp map <leader>r :call RunGpp()<cr>
 autocmd FileType cpp map <leader>d :call DebugGpp()<cr>
 
@@ -199,17 +196,10 @@ func! RunPython()
 endfunc
 
 "function to compile and runn C file
-func! CompileGcc()
-  exec "w"
-  exec "AsyncRun gcc % -o %< -g"
-  exec "vertical 80 copen"
-  exec "wincmd w"
-endfunc
-
 func! RunGcc()
   exec "w"
   " exec "AsyncRun gcc % -o %<"
-  exec "AsyncRun! cat ./.args/.%.args 2>/dev/null | xargs ./%<"
+  exec "AsyncRun! gcc % -o %< && cat ./.args/.%.args 2>/dev/null | xargs ./%<"
   exec "vertical 80 copen"
   exec "wincmd w"
 
@@ -222,16 +212,9 @@ endfunc
 
 
 "function to compile and runn C++ file
-func! CompileGpp()
-  exec "w"
-  exec "AsyncRun g++ % -o %< -g"
-  exec "vertical 80 copen"
-  exec "wincmd w"
-
-endfunc
 func! RunGpp()
   exec "w"
-  exec "AsyncRun! cat ./.args/.%.args 2>/dev/null | xargs ./%<"
+  exec "AsyncRun! g++ % -o %< -g && cat ./.args/.%.args 2>/dev/null | xargs ./%<"
   exec "vertical 80 copen"
   exec "wincmd w"
 endfunc
