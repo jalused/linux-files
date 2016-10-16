@@ -17,7 +17,7 @@ set background=dark
 "新建.c,.h,.sh,.java文件，自动插入文件头 
 autocmd BufNewFile *.cpp,*.[ch],*.sh,*.py,*.java exec ":call SetTitle()" 
 ""定义函数SetTitle，自动插入文件头 
-func SetTitle() 
+func! SetTitle() 
     "如果文件类型为.sh文件 
     if &filetype == 'sh' 
         call setline(1, "\#!/usr/bin/env bash") 
