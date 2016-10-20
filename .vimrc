@@ -293,6 +293,7 @@ Plugin 'Lokaltog/vim-easymotion'
 Plugin 'Lokaltog/vim-powerline'
 set guifont=PowerlineSymbols\ for\ Powerline
 set nocompatible
+set backspace=2
 set t_Co=256
 set encoding=utf-8
 let g:Powerline_symbols = 'fancy'
@@ -422,4 +423,10 @@ nnoremap <leader>f yiw:CtrlSF <C-r>0<CR>
 
 Plugin 'skywind3000/asyncrun.vim'  
 
+Plugin 'dbsr/vimpy'
+
+" Plugin 'fholgado/minibufexpl.vim'
+if has("autocmd")
+  au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
+endif
 
