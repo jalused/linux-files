@@ -424,6 +424,7 @@ nnoremap <leader>f yiw:CtrlSF <C-r>0<CR>
 Plugin 'skywind3000/asyncrun.vim'  
 
 Plugin 'dbsr/vimpy'
+nmap <leader>v :VimpyCheckLine<cr>
 
 " Plugin 'fholgado/minibufexpl.vim'
 if has("autocmd")
