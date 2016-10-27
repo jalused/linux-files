@@ -190,7 +190,7 @@ autocmd FileType cpp map <leader>d :call DebugGpp()<cr>
 
 func! RunPython()
   exec "w"
-  exec "AsyncRun! cat ./.args/.%.args 2>/dev/null | xargs python %"
+  exec "AsyncRun cat ./.args/.%.args 2>/dev/null | xargs python %"
   exec "vertical 80 copen"
   exec "wincmd w"
 endfunc
@@ -199,7 +199,7 @@ endfunc
 func! RunGcc()
   exec "w"
   " exec "AsyncRun gcc % -o %<"
-  exec "AsyncRun! gcc % -o %< && cat ./.args/.%.args 2>/dev/null | xargs ./%<"
+  exec "AsyncRun gcc % -o %< && cat ./.args/.%.args 2>/dev/null | xargs ./%<"
   exec "vertical 80 copen"
   exec "wincmd w"
 
@@ -214,7 +214,7 @@ endfunc
 "function to compile and runn C++ file
 func! RunGpp()
   exec "w"
-  exec "AsyncRun! g++ % -o %< -g && cat ./.args/.%.args 2>/dev/null | xargs ./%<"
+  exec "AsyncRun g++ % -o %< -g && cat ./.args/.%.args 2>/dev/null | xargs ./%<"
   exec "vertical 80 copen"
   exec "wincmd w"
 endfunc
@@ -228,7 +228,7 @@ endfunc
 func! RunSH()
   exec "w"
   exec "!chmod a+x %"
-  exec "AsyncRun! cat ./.args/.%.args 2>/dev/null | xargs ./%"
+  exec "AsyncRun cat ./.args/.%.args 2>/dev/null | xargs ./%"
   exec "vertical 80 copen"
   exec "wincmd w"
 endfunc
