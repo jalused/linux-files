@@ -259,6 +259,8 @@ nmap <Leader>w :wa!<cr>
 nmap <Leader>q :q<cr>
 nmap <Leader><leader>q :qa<cr>
 nmap <Leader>x :xa<cr>
+"switch between current buffer and the one lastly used
+nmap <Leader>bb :b#<cr>
 
 
 "set <leader>p to toggle paste mode
