@@ -258,11 +258,12 @@ source $VIMRUNTIME/macros/matchit.vim
 nmap <Leader>w :wa!<cr>
 nmap <Leader>q :q<cr>
 nmap <Leader><leader>q :qa<cr>
-nmap <Leader>x :xa<cr>
+nmap <Leader>x :x<cr>
+nmap <Leader><leader>x :xa<cr>
 "switch between current buffer and the one lastly used
 nmap <Leader>bb :b#<cr>
-
-
+" Open arguments files of current file
+nmap <leader>c :below split .args/.%.args<cr>
 "set <leader>p to toggle paste mode
 nmap <leader>p :set paste!<BAR>set paste?<CR>
 
@@ -274,6 +275,15 @@ nmap <leader>p :set paste!<BAR>set paste?<CR>
 " " 设置插件 indexer 调用 ctags 的参数
 " " " 默认 --c++-kinds=+p+l，重新设置为 --c++-kinds=+p+l+x+c+d+e+f+g+m+n+s+t+u+v
 " " " 默认 --fields=+iaS 不满足 YCM 要求，需改为 --fields=+iaSl
+
+func! Mkdir(path)
+  if !isdirectory(a:path)
+    call mkdir(a:path, "p")
+  endif
+endfunc
+
+autocmd! BufWritePre * :call Mkdir(expand("<afile>:p:h"))
+
 
 nnoremap <silent><Leader>g :Grep<CR>
 "auto-completion"
