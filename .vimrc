@@ -181,67 +181,68 @@ map <leader>n :NERDTree<cr>
 map <Leader><leader>h <Plug>(easymotion-linebackward)
 map <Leader><leader>l <Plug>(easymotion-lineforward)
 " set <leader><leader>r to compile and run 
-autocmd FileType python map <leader>r :call RunPython()<cr>
-autocmd FileType sh map <leader>r :call RunSH()<cr>
-autocmd FileType c map <leader>r :call RunGcc()<cr>
-autocmd FileType c map <leader>d :call DebugGcc()<cr>
-autocmd FileType cpp map <leader>r :call RunGpp()<cr>
-autocmd FileType cpp map <leader>d :call DebugGpp()<cr>
+" autocmd FileType python map <leader>r :call RunPython()<cr>
+" autocmd FileType sh map <leader>r :call RunSH()<cr>
+" autocmd FileType c map <leader>r :call RunGcc()<cr>
+" autocmd FileType c map <leader>d :call DebugGcc()<cr>
+" autocmd FileType cpp map <leader>r :call RunGpp()<cr>
+" autocmd FileType cpp map <leader>d :call DebugGpp()<cr>
 
-func! RunPython()
-  exec "w"
-  exec "AsyncRun cat ./.args/.%.args 2>/dev/null | xargs python %"
-  exec "vertical 80 copen"
-  exec "wincmd w"
-endfunc
+" func! RunPython()
+"   exec "w"
+"   exec "AsyncRun cat ./.args/.%.args 2>/dev/null | xargs python %"
+"   exec "vertical 80 copen"
+"   exec "wincmd w"
+" endfunc
 
-"function to compile and runn C file
-func! RunGcc()
-  exec "w"
-  " exec "AsyncRun gcc % -o %<"
-  exec "AsyncRun gcc % -o %< && cat ./.args/.%.args 2>/dev/null | xargs ./%<"
-  exec "vertical 80 copen"
-  exec "wincmd w"
+" "function to compile and runn C file
+" func! RunGcc()
+"   exec "w"
+"   " exec "AsyncRun gcc % -o %<"
+"   exec "AsyncRun gcc % -o %< && cat ./.args/.%.args 2>/dev/null | xargs ./%<"
+"   exec "vertical 80 copen"
+"   exec "wincmd w"
 
-endfunc
-func!  DebugGcc()
-  exec "w"
-  exec "!gcc % -o %< -g"
-  exec "!cgdb %<"
-endfunc
+" endfunc
+" func!  DebugGcc()
+"   exec "w"
+"   exec "!gcc % -o %< -g"
+"   exec "!cgdb %<"
+" endfunc
 
 
-"function to compile and runn C++ file
-func! RunGpp()
-  exec "w"
-  exec "AsyncRun g++ % -o %< -g && cat ./.args/.%.args 2>/dev/null | xargs ./%<"
-  exec "vertical 80 copen"
-  exec "wincmd w"
-endfunc
+" "function to compile and runn C++ file
+" func! RunGpp()
+"   exec "w"
+"   exec "AsyncRun g++ % -o %< -g && cat ./.args/.%.args 2>/dev/null | xargs ./%<"
+"   exec "vertical 80 copen"
+"   exec "wincmd w"
+" endfunc
 
-func!  DebugGpp()
-  exec "w"
-  exec "!g++ % -o %< -g"
-  exec "!cgdb %<"
-endfunc
+" func!  DebugGpp()
+"   exec "w"
+"   exec "!g++ % -o %< -g"
+"   exec "!cgdb %<"
+" endfunc
 
-func! RunSH()
-  exec "w"
-  exec "!chmod a+x %"
-  exec "AsyncRun cat ./.args/.%.args 2>/dev/null | xargs ./%"
-  exec "vertical 80 copen"
-  exec "wincmd w"
-endfunc
-au BufEnter * call MyLastWindow()
-function! MyLastWindow()
-  " if the window is quickfix go on
-  if &buftype=="quickfix"
-    " if this window is last on screen quit without warning
-    if winbufnr(2) == -1
-      quit!
-    endif
-  endif
-endfunction
+" func! RunSH()
+"   exec "w"
+"   exec "!chmod a+x %"
+"   exec "AsyncRun cat ./.args/.%.args 2>/dev/null | xargs ./%"
+"   exec "vertical 80 copen"
+"   exec "wincmd w"
+" endfunc
+" au BufEnter * call MyLastWindow()
+" function! MyLastWindow()
+"   " if the window is quickfix go on
+"   if &buftype=="quickfix"
+"     " if this window is last on screen quit without warning
+"     if winbufnr(2) == -1
+"       quit!
+"     endif
+"   endif
+" endfunction
+" nmap <leader>c :below split .args/.%.args<cr>
 
 "property of cscope
 set csprg=/usr/local/bin/cscope
@@ -263,7 +264,6 @@ nmap <Leader><leader>x :xa<cr>
 "switch between current buffer and the one lastly used
 nmap <Leader>bb :b#<cr>
 " Open arguments files of current file
-nmap <leader>c :below split .args/.%.args<cr>
 "set <leader>p to toggle paste mode
 nmap <leader>p :set paste!<BAR>set paste?<CR>
 
@@ -276,13 +276,13 @@ nmap <leader>p :set paste!<BAR>set paste?<CR>
 " " " 默认 --c++-kinds=+p+l，重新设置为 --c++-kinds=+p+l+x+c+d+e+f+g+m+n+s+t+u+v
 " " " 默认 --fields=+iaS 不满足 YCM 要求，需改为 --fields=+iaSl
 
-func! Mkdir(path)
-  if !isdirectory(a:path)
-    call mkdir(a:path, "p")
-  endif
-endfunc
+" func! Mkdir(path)
+"   if !isdirectory(a:path)
+"     call mkdir(a:path, "p")
+"   endif
+" endfunc
 
-autocmd! BufWritePre * :call Mkdir(expand("<afile>:p:h"))
+" autocmd! BufWritePre * :call Mkdir(expand("<afile>:p:h"))
 
 
 nnoremap <silent><Leader>g :Grep<CR>
@@ -443,3 +443,4 @@ if has("autocmd")
   au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
 endif
 
+Plugin 'Jallet/quickrun.vim'
