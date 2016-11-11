@@ -46,18 +46,30 @@ func! SetTitle()
         call append(line(".")+7, "\###############################################")
         call append(line(".")+8, "") 
         call append(line(".")+9, "import argparse") 
-        call append(line(".")+10, "")
-        call append(line(".")+11, "def argparser():")
-        call append(line(".")+12, "    parser = argparse.ArgumentParser()")
-        call append(line(".")+13, "    return parser")
-        call append(line(".")+14, "")
-        call append(line(".")+15, "def main():")
-        call append(line(".")+16, "    parser = argparser()")
-        call append(line(".")+17, "    args = parser.parse_args()")
-        call append(line(".")+18, "")
-        call append(line(".")+19, "if \"__main__\" == __name__:")
-        call append(line(".")+20, "    main()")
-        normal 17G
+        call append(line(".")+10, "import logging") 
+        call append(line(".")+11, "")
+        call append(line(".")+12, "def argparser():")
+        call append(line(".")+13, "    parser = argparse.ArgumentParser()")
+        call append(line(".")+14, "    return parser")
+        call append(line(".")+15, "")
+        call append(line(".")+16, "def main():")
+        call append(line(".")+17, "    handler = logging.StreamHandler()")
+        call append(line(".")+18, "    fmt = '[%(levelname)s] %(asctime)s - %(filename)s - line %(lineno)s - %(message)s'")
+        call append(line(".")+19, "    datefmt = '%Y-%m-%d %H:%M:%S'")
+        call append(line(".")+20, "    formatter = logging.Formatter(fmt, datefmt)")
+        call append(line(".")+21, "    handler.setFormatter(formatter)")
+        call append(line(".")+22, "    logger = logging.getLogger()")
+        call append(line(".")+23, "    logger.addHandler(handler)")
+        call append(line(".")+24, "    logger.setLevel(logging.DEBUG)")
+        call append(line(".")+25, "")
+        call append(line(".")+26, "    parser = argparser()")
+        call append(line(".")+27, "    args = parser.parse_args()")
+        call append(line(".")+28, "")
+        call append(line(".")+29, "")
+        call append(line(".")+30, "")
+        call append(line(".")+31, "if \"__main__\" == __name__:")
+        call append(line(".")+32, "    main()")
+        normal 31G
         
 
     elseif &filetype == 'cpp' || &filetype == 'c'
@@ -180,69 +192,6 @@ nmap <Leader>z :ZoomWin<cr>
 map <leader>n :NERDTree<cr>
 map <Leader><leader>h <Plug>(easymotion-linebackward)
 map <Leader><leader>l <Plug>(easymotion-lineforward)
-" set <leader><leader>r to compile and run 
-" autocmd FileType python map <leader>r :call RunPython()<cr>
-" autocmd FileType sh map <leader>r :call RunSH()<cr>
-" autocmd FileType c map <leader>r :call RunGcc()<cr>
-" autocmd FileType c map <leader>d :call DebugGcc()<cr>
-" autocmd FileType cpp map <leader>r :call RunGpp()<cr>
-" autocmd FileType cpp map <leader>d :call DebugGpp()<cr>
-
-" func! RunPython()
-"   exec "w"
-"   exec "AsyncRun cat ./.args/.%.args 2>/dev/null | xargs python %"
-"   exec "vertical 80 copen"
-"   exec "wincmd w"
-" endfunc
-
-" "function to compile and runn C file
-" func! RunGcc()
-"   exec "w"
-"   " exec "AsyncRun gcc % -o %<"
-"   exec "AsyncRun gcc % -o %< && cat ./.args/.%.args 2>/dev/null | xargs ./%<"
-"   exec "vertical 80 copen"
-"   exec "wincmd w"
-
-" endfunc
-" func!  DebugGcc()
-"   exec "w"
-"   exec "!gcc % -o %< -g"
-"   exec "!cgdb %<"
-" endfunc
-
-
-" "function to compile and runn C++ file
-" func! RunGpp()
-"   exec "w"
-"   exec "AsyncRun g++ % -o %< -g && cat ./.args/.%.args 2>/dev/null | xargs ./%<"
-"   exec "vertical 80 copen"
-"   exec "wincmd w"
-" endfunc
-
-" func!  DebugGpp()
-"   exec "w"
-"   exec "!g++ % -o %< -g"
-"   exec "!cgdb %<"
-" endfunc
-
-" func! RunSH()
-"   exec "w"
-"   exec "!chmod a+x %"
-"   exec "AsyncRun cat ./.args/.%.args 2>/dev/null | xargs ./%"
-"   exec "vertical 80 copen"
-"   exec "wincmd w"
-" endfunc
-" au BufEnter * call MyLastWindow()
-" function! MyLastWindow()
-"   " if the window is quickfix go on
-"   if &buftype=="quickfix"
-"     " if this window is last on screen quit without warning
-"     if winbufnr(2) == -1
-"       quit!
-"     endif
-"   endif
-" endfunction
-" nmap <leader>c :below split .args/.%.args<cr>
 
 "property of cscope
 set csprg=/usr/local/bin/cscope
