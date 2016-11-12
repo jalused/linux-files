@@ -188,6 +188,7 @@ map  fj <Esc>
 omap fj <Esc>
 imap fj <Esc>
 cmap fj <Esc> 
+nmap fj <Esc>
 nmap <Leader>z :ZoomWin<cr>
 map <leader>n :NERDTree<cr>
 map <Leader><leader>h <Plug>(easymotion-linebackward)
@@ -369,11 +370,11 @@ Plugin 'vim-scripts/indexer.tar.gz'
 Plugin 'Yggdroot/indentLine'
 Plugin 'ZoomWin'
 Plugin 'terryma/vim-multiple-cursors'
+let g:multi_cursor_quit_key='<C-c>'
+nnoremap <C-c> :call multiple_cursors#quit()<CR>
 let g:multi_cursor_exit_from_visual_mode=0
 let g:multi_cursor_exit_from_insert_mode=0
-let g:multi_cursor_normal_maps.f = 1
-echo g:multi_cursor_insert_maps
-let g:multi_cursor_insert_maps.f = 1
+let g:multi_cursor_insert_maps = {'f' : 1}
 
 Plugin 'ctrlpvim/ctrlp.vim'
 let g:ctrlp_map = '<leader>a'
