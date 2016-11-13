@@ -184,6 +184,11 @@ nmap  J <C-w>j
 nmap  H <C-w>h
 nmap  K <C-w>k
 nmap  L <C-w>l
+nmap v= <C-w>+
+nmap v- <C-w>-
+nmap v0 <C-w>=
+nmap v] <C-w>>
+nmap v[ <C-w><
 map  fj <Esc>
 omap fj <Esc>
 imap fj <Esc>
