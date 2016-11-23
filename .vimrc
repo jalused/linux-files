@@ -14,6 +14,7 @@ filetype plugin on
 set history=1000
 "背景颜色为黑色
 set background=dark
+colorscheme molokai
 "新建.c,.h,.sh,.java文件，自动插入文件头 
 autocmd BufNewFile *.cpp,*.[ch],*.sh,*.py,*.java exec ":call SetTitle()" 
 ""定义函数SetTitle，自动插入文件头 
