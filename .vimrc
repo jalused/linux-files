@@ -410,6 +410,7 @@ let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#whitespace#enabled = 0
 let g:airline#extensions#tabline#buffer_nr_show = 1
 let g:airline_section_error = ''
+nnoremap <leader>h :bp<CR>
 nnoremap <leader>l :bn<CR>
 nnoremap <leader>1 :b 1<CR>
 nnoremap <leader>2 :b 2<CR>
