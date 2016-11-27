@@ -410,16 +410,16 @@ let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#whitespace#enabled = 0
 let g:airline#extensions#tabline#buffer_nr_show = 1
 let g:airline_section_error = ''
-nnoremap gh :bp<CR>
-nnoremap gl :bn<CR>
-nnoremap g1 :b 1<CR>
-nnoremap g2 :b 2<CR>
-nnoremap g3 :b 3<CR>
-nnoremap g4 :b 4<CR>
-nnoremap g5 :b 5<CR>
-nnoremap g6 :b 6<CR>
-nnoremap g7 :b 7<CR>
-nnoremap g8 :b 8<CR>
-nnoremap g9 :b 9<CR>
-nnoremap <Tab><Tab> <C-^>
+nnoremap <Space>h :bp<CR>
+nnoremap <Space>l :bn<CR>
+nnoremap <Space>1 :b 1<CR>
+nnoremap <Space>2 :b 2<CR>
+nnoremap <Space>3 :b 3<CR>
+nnoremap <Space>4 :b 4<CR>
+nnoremap <Space>5 :b 5<CR>
+nnoremap <Space>6 :b 6<CR>
+nnoremap <Space>7 :b 7<CR>
+nnoremap <Space>8 :b 8<CR>
+nnoremap <Space>9 :b 9<CR>
+nnoremap <Space><Space> <C-^>
 let g:airline#extensions#default#section_truncate_width = {}
