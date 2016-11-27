@@ -392,6 +392,7 @@ vnoremap <leader>f y:CtrlSF <C-r>0<CR>
 nnoremap <leader>f yiw:CtrlSF <C-r>0<CR>
 
 Plugin 'skywind3000/asyncrun.vim'  
+nnoremap <leader>s :AsyncStop<CR>
 
 Plugin 'dbsr/vimpy'
 nmap <leader>v :VimpyCheckLine<cr>
