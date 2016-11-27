@@ -258,7 +258,7 @@ Plugin 'gregsexton/gitv'
 Plugin 'kshenoy/vim-signature'
 
 Plugin 'Lokaltog/vim-easymotion'
-Plugin 'Lokaltog/vim-powerline'
+" Plugin 'Lokaltog/vim-powerline'
 set guifont=PowerlineSymbols\ for\ Powerline
 set nocompatible
 set backspace=2
@@ -339,6 +339,7 @@ let g:ycm_filetype_blacklist = {
       \ 'tagbar' : 1,
       \ 'nerdtree' : 1,
       \ 'vim' : 1,
+      \ 'json' : 1,
       \}
 let g:ycm_error_symbol='>>'  
 let g:ycm_warning_symbol='>'
@@ -401,3 +402,21 @@ if has("autocmd")
 endif
 
 Plugin 'Jallet/quickrun.vim'
+
+Plugin 'vim-airline/vim-airline'
+let g:airline_powerline_fonts = 1
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#whitespace#enabled = 0
+let g:airline#extensions#tabline#buffer_nr_show = 1
+nnoremap <leader>l :bn<CR>
+nnoremap <leader>1 :b 1<CR>
+nnoremap <leader>2 :b 2<CR>
+nnoremap <leader>3 :b 3<CR>
+nnoremap <leader>4 :b 4<CR>
+nnoremap <leader>5 :b 5<CR>
+nnoremap <leader>6 :b 6<CR>
+nnoremap <leader>7 :b 7<CR>
+nnoremap <leader>8 :b 8<CR>
+nnoremap <leader>9 :b 9<CR>
+nnoremap <leader><Tab> <C-^>
+let g:airline#extensions#default#section_truncate_width = {}
