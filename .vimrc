@@ -410,9 +410,15 @@ let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#whitespace#enabled = 0
 let g:airline#extensions#tabline#buffer_nr_show = 1
 let g:airline_section_error = ''
+function! DeleteCurrentBuffer()
+  " close current buffer and jump to previous buffer
+  let id = bufnr('%')
+  :execute "bp"
+  :execute ":bd ".l:id
+endfunction
 nnoremap <Space>h :bp<CR>
 nnoremap <Space>l :bn<CR>
-nnoremap <Space>q :bd<CR>
+nnoremap <Space>q :call DeleteCurrentBuffer()<CR>
 nnoremap <Space>1 :b 1<CR>
 nnoremap <Space>2 :b 2<CR>
 nnoremap <Space>3 :b 3<CR>
