@@ -412,6 +412,7 @@ let g:airline#extensions#tabline#buffer_nr_show = 1
 let g:airline_section_error = ''
 nnoremap <Space>h :bp<CR>
 nnoremap <Space>l :bn<CR>
+nnoremap <Space>q :bd<CR>
 nnoremap <Space>1 :b 1<CR>
 nnoremap <Space>2 :b 2<CR>
 nnoremap <Space>3 :b 3<CR>
