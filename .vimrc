@@ -430,4 +430,3 @@ nnoremap <Space>7 :b 7<CR>
 nnoremap <Space>8 :b 8<CR>
 nnoremap <Space>9 :b 9<CR>
 nnoremap <Space><Space> <C-^>
-let g:airline#extensions#default#section_truncate_width = {}
