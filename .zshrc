@@ -89,7 +89,7 @@ alias ll='ls -lh'
 alias tmux='tmux -2'
 alias ta='tmux attach'
 alias cp='cp -r'
-PATH=/home/liangjiang/code/util/bin:/home/liangjiang/code/scripts:/home/liangjiang/code/util/bin:$PATH
+PATH=/home/liangjiang/software/bin:/home/liangjiang/code/util/bin:/home/liangjiang/code/scripts:/home/liangjiang/code/util/bin:$PATH
 alias rz='rz -abe'
 alias sz='sz -abe'
 export PATH
