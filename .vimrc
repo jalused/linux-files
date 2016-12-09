@@ -276,6 +276,7 @@ let tagbar_left=0
 nnoremap <Leader>t :TagbarToggle<CR> 
 noremap <Space>t :TagbarOpen j<CR>
 let g:tagbar_autofocus=1
+let g:tagbar_autoclose=1
 let tagbar_width=40 
 let g:tagbar_compact=1
 let g:tagbar_type_cpp = {
