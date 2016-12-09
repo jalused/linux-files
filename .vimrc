@@ -251,6 +251,11 @@ call vundle#rc()
 Plugin 'airblade/vim-gitgutter'
 nnoremap <leader><leader>n :GitGutterNextHunk<CR>
 nnoremap <leader><leader>p :GitGutterPrevHunk<CR>
+nnoremap <leader><leader>g :GitGutterLineHighlightsToggle<CR>
+nnoremap <leader><leader>s :GitGutterStageHunk<CR>
+nnoremap <leader><leader>u :GitGutterUndoHunk<CR>
+nnoremap <leader><leader>p :GitGutterPreviewHunk<CR>
+nnoremap <Space>p :pclose<CR>
 let g:gitgutter_max_signs = 10000
 Plugin 'DfrankUtil'
 Plugin 'gmarik/vundle'
