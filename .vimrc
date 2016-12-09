@@ -223,6 +223,11 @@ nmap <Leader>bb :b#<cr>
 "set <leader>p to toggle paste mode
 nmap <leader>p :set paste!<BAR>set paste?<CR>
 
+set splitbelow 
+set splitright
+nmap <Space>v :vnew<CR>
+nmap <Space>s :new<CR>
+
 " "" 从第二层开始可视化显示缩进
 " let g:indent_guides_start_level=1
 " " 色块宽度
