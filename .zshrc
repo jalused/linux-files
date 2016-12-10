@@ -95,8 +95,7 @@ alias sz='sz -abe'
 export PATH
 CAFFE_ROOT=/home/liangjiang/code/caffe/
 export CAFFE_ROOT
-# PYTHONPATH=/home/liangjiang/code/caffe/python/:/home/liangjiang/code/keras/
-PYTHONPATH=/home/liangjiang/code/caffe/python/
+PYTHONPATH=/home/liangjiang/code/caffe/python/:/home/liangjiang/code/keras/:$PYTHONPATH
 export PYTHONPATH
 export ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=3'
 # eval "$(fasd --init auto)"
