@@ -96,10 +96,13 @@ export PATH
 CAFFE_ROOT=/home/liangjiang/code/caffe/
 export CAFFE_ROOT
 # PYTHONPATH=/home/liangjiang/code/caffe/python/:/home/liangjiang/code/keras/
-PYTHONPATH=/home/liangjiang/code/caffe/python/
+PYTHONPATH=/home/liangjiang/anaconda2:/home/liangjiang/code/caffe/python/
 export PYTHONPATH
+export PYTHONPATH=/home/liangjiang/anaconda2/lib/python2.7/site-packages:$PYTHONPATH
 export ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=3'
 # eval "$(fasd --init auto)"
 stty -ixon
 
 source /home/liangjiang/code/torch/install/bin/torch-activate
+# added by Anaconda2 4.2.0 installer
+export PATH="/home/liangjiang/anaconda2/bin:$PATH"
