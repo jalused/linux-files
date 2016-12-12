@@ -213,6 +213,7 @@ vnoremap # y?<C-r>0<CR>
 "properties of matlab"
 source $VIMRUNTIME/macros/matchit.vim
 nmap <Leader>w :wa!<cr>
+nmap <Space>w :w !sudo tee > /dev/null %<cr>
 nmap <Leader>q :q<cr>
 nmap <Leader><leader>q :qa<cr>
 nmap <Leader>x :x<cr>
@@ -254,15 +255,31 @@ call vundle#rc()
 
 "Plugins
 Plugin 'airblade/vim-gitgutter'
-nnoremap <leader><leader>n :GitGutterNextHunk<CR>
-nnoremap <leader><leader>p :GitGutterPrevHunk<CR>
-nnoremap <leader><leader>g :GitGutterLineHighlightsToggle<CR>
-nnoremap <leader><leader>s :GitGutterStageHunk<CR>
-nnoremap <leader><leader>u :GitGutterUndoHunk<CR>
-nnoremap <leader><leader>p :GitGutterPreviewHunk<CR>
-nnoremap <Space>p :pclose<CR>
+function! GitGutterPreviewToggle()
+  if !exists('g:gitgutter_preview_window')
+    exec 'GitGutterPreviewHunk'
+    let g:gitgutter_preview_window = bufnr('$')
+  else
+    exec "bd ".g:gitgutter_preview_window
+    unlet g:gitgutter_preview_window
+  endif
+endfunc
+function! GitGutterNextHunkWithPreview()
+  exec "GitGutterNextHunk"
+endfunc
+function! GitGutterPrevHunkWithPreview()
+  exec "GitGutterPrevHunk"
+endfunc
+nnoremap <leader><leader>n :call GitGutterNextHunkWithPreview()<CR>
+nnoremap <leader><leader>p :call GitGutterPrevHunkWithPreview()<CR>
+" nnoremap <leader><leader>n :GitGutterNextHunk<CR>
+" nnoremap <leader><leader>p :GitGutterPrevHunk<CR>
+nnoremap <Space>hg :GitGutterLineHighlightsToggle<CR>
+nnoremap <Space>hs :GitGutterStageHunk<CR>
+nnoremap <Space>hu :GitGutterUndoHunk<CR>
+nnoremap <Space>hp :call GitGutterPreviewToggle()<CR>
 let g:gitgutter_max_signs = 10000
-Plugin 'DfrankUtil'
+" Plugin 'DfrankUtil'
 Plugin 'gmarik/vundle'
 Plugin 'gregsexton/gitv'
 Plugin 'kshenoy/vim-signature'
@@ -384,10 +401,10 @@ inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<CR>"
 nnoremap <leader>gc :YcmCompleter GoToDeclaration<CR>  
 nnoremap <leader>gf :YcmCompleter GoToDefinition<CR>  
 nnoremap <leader>gg :YcmCompleter GoToDefinitionElseDeclaration<CR>  
-Plugin 'vimprj'
-Plugin 'vim-scripts/indexer.tar.gz'
+" Plugin 'vimprj'
+" Plugin 'vim-scripts/indexer.tar.gz'
 Plugin 'Yggdroot/indentLine'
-Plugin 'ZoomWin'
+" Plugin 'ZoomWin'
 Plugin 'terryma/vim-multiple-cursors'
 let g:multi_cursor_quit_key='<C-c>'
 nnoremap <C-c> :call multiple_cursors#quit()<CR>
@@ -406,7 +423,7 @@ nnoremap <leader>f yiw:CtrlSF <C-r>0<CR>
 Plugin 'skywind3000/asyncrun.vim'  
 nnoremap <leader>s :AsyncStop<CR>
 
-Plugin 'dbsr/vimpy'
+" Plugin 'dbsr/vimpy'
 nmap <leader>v :VimpyCheckLine<cr>
 
 " Plugin 'fholgado/minibufexpl.vim'
