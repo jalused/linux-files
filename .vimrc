@@ -213,6 +213,7 @@ vnoremap # y?<C-r>0<CR>
 "properties of matlab"
 source $VIMRUNTIME/macros/matchit.vim
 nmap <Leader>w :wa!<cr>
+nmap <Space>w :w !sudo tee > /dev/null %<cr>
 nmap <Leader>q :q<cr>
 nmap <Leader><leader>q :qa<cr>
 nmap <Leader>x :x<cr>
@@ -222,6 +223,11 @@ nmap <Leader>bb :b#<cr>
 " Open arguments files of current file
 "set <leader>p to toggle paste mode
 nmap <leader>p :set paste!<BAR>set paste?<CR>
+
+set splitbelow 
+set splitright
+nmap <Space>v :vnew<CR>
+nmap <Space>s :new<CR>
 
 " "" 从第二层开始可视化显示缩进
 " let g:indent_guides_start_level=1
@@ -249,10 +255,31 @@ call vundle#rc()
 
 "Plugins
 Plugin 'airblade/vim-gitgutter'
-nnoremap <leader><leader>n :GitGutterNextHunk<CR>
-nnoremap <leader><leader>p :GitGutterPrevHunk<CR>
+function! GitGutterPreviewToggle()
+  if !exists('g:gitgutter_preview_window')
+    exec 'GitGutterPreviewHunk'
+    let g:gitgutter_preview_window = bufnr('$')
+  else
+    exec "bd ".g:gitgutter_preview_window
+    unlet g:gitgutter_preview_window
+  endif
+endfunc
+function! GitGutterNextHunkWithPreview()
+  exec "GitGutterNextHunk"
+endfunc
+function! GitGutterPrevHunkWithPreview()
+  exec "GitGutterPrevHunk"
+endfunc
+nnoremap <leader><leader>n :call GitGutterNextHunkWithPreview()<CR>
+nnoremap <leader><leader>p :call GitGutterPrevHunkWithPreview()<CR>
+" nnoremap <leader><leader>n :GitGutterNextHunk<CR>
+" nnoremap <leader><leader>p :GitGutterPrevHunk<CR>
+nnoremap <Space>hg :GitGutterLineHighlightsToggle<CR>
+nnoremap <Space>hs :GitGutterStageHunk<CR>
+nnoremap <Space>hu :GitGutterUndoHunk<CR>
+nnoremap <Space>hp :call GitGutterPreviewToggle()<CR>
 let g:gitgutter_max_signs = 10000
-Plugin 'DfrankUtil'
+" Plugin 'DfrankUtil'
 Plugin 'gmarik/vundle'
 Plugin 'gregsexton/gitv'
 Plugin 'kshenoy/vim-signature'
@@ -271,6 +298,7 @@ let tagbar_left=0
 nnoremap <Leader>t :TagbarToggle<CR> 
 noremap <Space>t :TagbarOpen j<CR>
 let g:tagbar_autofocus=1
+let g:tagbar_autoclose=1
 let tagbar_width=40 
 let g:tagbar_compact=1
 let g:tagbar_type_cpp = {
@@ -309,7 +337,7 @@ Plugin 'Raimondi/delimitMate'
 Plugin 'scrooloose/nerdtree'
 Plugin 'syntastic'
 let g:syntastic_cpp_compiler_options = '-std=c++11 -stdlib=libstdc++'
-let g:syntastic_check_on_open = 1
+" let g:syntastic_check_on_open = 1
 let g:syntastic_cpp_include_dirs = ['/usr/include/'] 
 let g:syntastic_cpp_remove_include_errors = 1
 let g:syntastic_cpp_check_header = 1
@@ -373,10 +401,10 @@ inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<CR>"
 nnoremap <leader>gc :YcmCompleter GoToDeclaration<CR>  
 nnoremap <leader>gf :YcmCompleter GoToDefinition<CR>  
 nnoremap <leader>gg :YcmCompleter GoToDefinitionElseDeclaration<CR>  
-Plugin 'vimprj'
-Plugin 'vim-scripts/indexer.tar.gz'
+" Plugin 'vimprj'
+" Plugin 'vim-scripts/indexer.tar.gz'
 Plugin 'Yggdroot/indentLine'
-Plugin 'ZoomWin'
+" Plugin 'ZoomWin'
 Plugin 'terryma/vim-multiple-cursors'
 let g:multi_cursor_quit_key='<C-c>'
 nnoremap <C-c> :call multiple_cursors#quit()<CR>
@@ -395,7 +423,7 @@ nnoremap <leader>f yiw:CtrlSF <C-r>0<CR>
 Plugin 'skywind3000/asyncrun.vim'  
 nnoremap <leader>s :AsyncStop<CR>
 
-Plugin 'dbsr/vimpy'
+" Plugin 'dbsr/vimpy'
 nmap <leader>v :VimpyCheckLine<cr>
 
 " Plugin 'fholgado/minibufexpl.vim'
