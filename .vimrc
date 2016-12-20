@@ -424,7 +424,7 @@ nnoremap <leader>f yiw:CtrlSF <C-r>0<CR>
 Plugin 'skywind3000/asyncrun.vim'  
 nnoremap <leader>s :AsyncStop<CR>
 
-" Plugin 'dbsr/vimpy'
+Plugin 'dbsr/vimpy'
 nmap <leader>v :VimpyCheckLine<cr>
 
 " Plugin 'fholgado/minibufexpl.vim'
@@ -459,3 +459,4 @@ nnoremap <Space>7 :b 7<CR>
 nnoremap <Space>8 :b 8<CR>
 nnoremap <Space>9 :b 9<CR>
 nnoremap <Space><Space> <C-^>
+Plugin 'henrik/vim-indexed-search'
