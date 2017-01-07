@@ -138,8 +138,8 @@ set gcr=a:block-blinkon0
 "语法高亮
 syntax on
 "高亮当前行号"
-""set cursorline
-""set cursorcolumn
+" set cursorline
+" set cursorcolumn
 "缩进与智能缩进
 set autoindent
 set cindent
@@ -335,7 +335,7 @@ let g:tagbar_type_cpp = {
 \ }
 Plugin 'Raimondi/delimitMate'
 Plugin 'scrooloose/nerdtree'
-Plugin 'syntastic'
+Plugin 'vim-syntastic/syntastic'
 let g:syntastic_cpp_compiler_options = '-std=c++11 -stdlib=libstdc++'
 let g:syntastic_check_on_open = 1
 let g:syntastic_cpp_include_dirs = ['/usr/include/'] 
@@ -383,7 +383,7 @@ set completeopt-=preview
 "不显示开启vim时检查ycm_extra_conf文件的信息  
 let g:ycm_confirm_extra_conf=0  
 "注释和字符串的的补全
-let g:ycm_collect_identifiers_from_comments_and_strings = 0
+let g:ycm_collect_identifiers_from_comments_and_strings = 1
 "每次重新生成匹配项，禁止缓存匹配项  
 "let g:ycm_cache_omnifunc=0  
 "在注释中也可以补全  
@@ -440,6 +440,16 @@ let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#whitespace#enabled = 0
 let g:airline#extensions#tabline#buffer_nr_show = 1
 let g:airline_section_error = ''
+let g:airline_left_sep = '⮀'
+let g:airline_left_alt_sep = '⮁'
+let g:airline_right_sep = '⮂'
+let g:airline_right_alt_sep = '⮃'
+if !exists('g:airline_symbols')
+  let g:airline_symbols = {}
+endif
+let g:airline_symbols.branch = '⭠'
+let g:airline_symbols.readonly = '⭤'
+let g:airline_symbols.linenr = '⭡'
 function! DeleteCurrentBuffer()
   " close current buffer and jump to previous buffer
   let id = bufnr('%')
@@ -460,3 +470,4 @@ nnoremap <Space>8 :b 8<CR>
 nnoremap <Space>9 :b 9<CR>
 nnoremap <Space><Space> <C-^>
 Plugin 'henrik/vim-indexed-search'
+Plugin 'vim-scripts/highlight.vim'
