@@ -101,3 +101,5 @@ export PYTHONPATH
 export ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=3'
 # eval "$(fasd --init auto)"
 stty -ixon
+
+bindkey fj vi-cmd-mode
