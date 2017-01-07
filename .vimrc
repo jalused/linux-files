@@ -14,8 +14,6 @@ filetype plugin on
 set history=1000
 "背景颜色为黑色
 set background=dark
-set cursorline
-set cursorcolumn
 colorscheme molokai
 "新建.c,.h,.sh,.java文件，自动插入文件头 
 autocmd BufNewFile *.cpp,*.[ch],*.sh,*.py,*.java exec ":call SetTitle()" 
@@ -140,8 +138,8 @@ set gcr=a:block-blinkon0
 "语法高亮
 syntax on
 "高亮当前行号"
-""set cursorline
-""set cursorcolumn
+" set cursorline
+" set cursorcolumn
 "缩进与智能缩进
 set autoindent
 set cindent
@@ -472,3 +470,4 @@ nnoremap <Space>8 :b 8<CR>
 nnoremap <Space>9 :b 9<CR>
 nnoremap <Space><Space> <C-^>
 Plugin 'henrik/vim-indexed-search'
+Plugin 'vim-scripts/highlight.vim'
