@@ -195,7 +195,6 @@ omap fj <Esc>
 imap fj <Esc>
 cmap fj <Esc> 
 nmap fj <Esc>
-nmap <Leader>z :ZoomWin<cr>
 map <leader>n :NERDTreeToggle<cr>
 map <Leader><leader>h <Plug>(easymotion-linebackward)
 map <Leader><leader>l <Plug>(easymotion-lineforward)
@@ -471,3 +470,5 @@ nnoremap <Space>9 :b 9<CR>
 nnoremap <Space><Space> <C-^>
 Plugin 'henrik/vim-indexed-search'
 Plugin 'vim-scripts/highlight.vim'
+Plugin 'Jallet/ZoomSplit'
+nnoremap <leader>z :ToggleZoom<CR>
