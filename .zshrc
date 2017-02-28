@@ -91,6 +91,7 @@ alias ta='tmux attach'
 alias cp='cp -r'
 alias rz='rz -abe'
 alias sz='sz -abe'
+alias vi='vim'
 PATH=/home/liangjiang/code/scripts:$PATH
 export PATH
 CAFFE_ROOT=/home/liangjiang/code/caffe/
