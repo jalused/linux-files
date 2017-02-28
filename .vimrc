@@ -211,12 +211,12 @@ vnoremap # y?<C-r>0<CR>
 
 "properties of matlab"
 source $VIMRUNTIME/macros/matchit.vim
-nmap <Leader>w :wa!<cr>
+nmap <Leader>w :w<cr>
 nmap <Space>w :w !sudo tee > /dev/null %<cr>
 nmap <Leader>q :q<cr>
 nmap <Leader><leader>q :qa<cr>
 nmap <Leader>x :x<cr>
-nmap <Leader><leader>x :xa<cr>
+nmap <Leader><leader>x :x<cr>
 "switch between current buffer and the one lastly used
 nmap <Leader>bb :b#<cr>
 " Open arguments files of current file
@@ -416,9 +416,9 @@ Plugin 'ctrlpvim/ctrlp.vim'
 let g:ctrlp_map = '<leader>a'
 let g:ctrlp_cmd = 'CtrlP'
 
-Plugin 'dyng/ctrlsf.vim'
-vnoremap <leader>f y:CtrlSF <C-r>0<CR>
-nnoremap <leader>f yiw:CtrlSF <C-r>0<CR>
+" Plugin 'dyng/ctrlsf.vim'
+" vnoremap <leader>f y:CtrlSF <C-r>0<CR>
+" nnoremap <leader>f yiw:CtrlSF <C-r>0<CR>
 
 Plugin 'skywind3000/asyncrun.vim'  
 nnoremap <leader>s :AsyncStop<CR>

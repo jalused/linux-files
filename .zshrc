@@ -92,6 +92,8 @@ alias cp='cp -r'
 PATH=/home/liangjiang/software/bin:/home/liangjiang/code/util/bin:/home/liangjiang/code/scripts:/home/liangjiang/code/util/bin:$PATH
 alias rz='rz -abe'
 alias sz='sz -abe'
+alias vi='vim'
+PATH=/home/liangjiang/code/scripts:$PATH
 export PATH
 CAFFE_ROOT=/home/liangjiang/code/caffe/
 export CAFFE_ROOT
