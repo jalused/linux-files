@@ -2,7 +2,8 @@
 "Author: Liang Jiang
 "Date: 2014-10-10
 
-let mapleader = ","
+let mapleader = " "
+let localleader = ","
 
 "显示行号
 set number
@@ -14,7 +15,7 @@ filetype plugin on
 set history=1000
 "背景颜色为黑色
 set background=dark
-colorscheme molokai
+" colorscheme molokai
 "新建.c,.h,.sh,.java文件，自动插入文件头 
 autocmd BufNewFile *.cpp,*.[ch],*.sh,*.py,*.java exec ":call SetTitle()" 
 ""定义函数SetTitle，自动插入文件头 
@@ -179,6 +180,7 @@ set nofoldenable
 set foldlevel=100
 
 "设置快捷键
+nmap ,l :set list!<cr>
 nmap vo <C-o>
 nmap vi <C-i>
 nmap  J <C-w>j
@@ -212,7 +214,7 @@ vnoremap # y?<C-r>0<CR>
 "properties of matlab"
 source $VIMRUNTIME/macros/matchit.vim
 nmap <Leader>w :w<cr>
-nmap <Space>w :w !sudo tee > /dev/null %<cr>
+nmap ,w :w !sudo tee > /dev/null %<cr>
 nmap <Leader>q :q<cr>
 nmap <Leader><leader>q :qa<cr>
 nmap <Leader>x :x<cr>
@@ -225,8 +227,8 @@ nmap <leader>p :set paste!<BAR>set paste?<CR>
 
 set splitbelow 
 set splitright
-nmap <Space>v :vnew<CR>
-nmap <Space>s :new<CR>
+nmap ,v :vnew<CR>
+nmap ,s :new<CR>
 
 " "" 从第二层开始可视化显示缩进
 " let g:indent_guides_start_level=1
@@ -273,10 +275,10 @@ nnoremap <leader><leader>n :call GitGutterNextHunkWithPreview()<CR>
 nnoremap <leader><leader>p :call GitGutterPrevHunkWithPreview()<CR>
 " nnoremap <leader><leader>n :GitGutterNextHunk<CR>
 " nnoremap <leader><leader>p :GitGutterPrevHunk<CR>
-nnoremap <Space>hg :GitGutterLineHighlightsToggle<CR>
-nnoremap <Space>hs :GitGutterStageHunk<CR>
-nnoremap <Space>hu :GitGutterUndoHunk<CR>
-nnoremap <Space>hp :call GitGutterPreviewToggle()<CR>
+nnoremap <Leader>hg :GitGutterLineHighlightsToggle<CR>
+nnoremap <Leader>hs :GitGutterStageHunk<CR>
+nnoremap <Leader>hu :GitGutterUndoHunk<CR>
+nnoremap <Leader>hp :call GitGutterPreviewToggle()<CR>
 let g:gitgutter_max_signs = 10000
 " Plugin 'DfrankUtil'
 Plugin 'gmarik/vundle'
@@ -295,7 +297,6 @@ Plugin 'majutsushi/tagbar'
 "tagbar"
 let tagbar_left=0 
 nnoremap <Leader>t :TagbarToggle<CR> 
-noremap <Space>t :TagbarOpen j<CR>
 let g:tagbar_autofocus=1
 let g:tagbar_autoclose=1
 let tagbar_width=40 
@@ -455,19 +456,19 @@ function! DeleteCurrentBuffer()
   :execute "bp"
   :execute ":bd ".l:id
 endfunction
-nnoremap <Space>h :bp<CR>
-nnoremap <Space>l :bn<CR>
-nnoremap <Space>q :call DeleteCurrentBuffer()<CR>
-nnoremap <Space>1 :b 1<CR>
-nnoremap <Space>2 :b 2<CR>
-nnoremap <Space>3 :b 3<CR>
-nnoremap <Space>4 :b 4<CR>
-nnoremap <Space>5 :b 5<CR>
-nnoremap <Space>6 :b 6<CR>
-nnoremap <Space>7 :b 7<CR>
-nnoremap <Space>8 :b 8<CR>
-nnoremap <Space>9 :b 9<CR>
-nnoremap <Space><Space> <C-^>
+nnoremap <Leader>h :bp<CR>
+nnoremap <Leader>l :bn<CR>
+nnoremap ,q :call DeleteCurrentBuffer()<CR>
+nnoremap <Leader>1 :b 1<CR>
+nnoremap <Leader>2 :b 2<CR>
+nnoremap <Leader>3 :b 3<CR>
+nnoremap <Leader>4 :b 4<CR>
+nnoremap <Leader>5 :b 5<CR>
+nnoremap <Leader>6 :b 6<CR>
+nnoremap <Leader>7 :b 7<CR>
+nnoremap <Leader>8 :b 8<CR>
+nnoremap <Leader>9 :b 9<CR>
+nnoremap <Tab><Tab> <C-^>
 Plugin 'henrik/vim-indexed-search'
 Plugin 'vim-scripts/highlight.vim'
 Plugin 'Jallet/ZoomSplit'
