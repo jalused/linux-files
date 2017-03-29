@@ -4,6 +4,7 @@
 
 let mapleader = ","
 
+set scrolloff=7
 "显示行号
 set number
 "检测文件类型
@@ -133,6 +134,7 @@ set smarttab		" insert tabs on the start of a line according to context
 " " move to the prev error
 " map <leader>[ :cp<CR>
 
+nmap <leader>l :set list!<CR>
 "禁止光标闪烁"
 set gcr=a:block-blinkon0
 "语法高亮
@@ -178,6 +180,9 @@ set foldmethod=indent
 set nofoldenable
 set foldlevel=100
 
+nmap n nzz
+nmap N Nzz
+" nmap G Gzz
 "设置快捷键
 nmap vo <C-o>
 nmap vi <C-i>
