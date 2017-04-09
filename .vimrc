@@ -223,7 +223,6 @@ nmap <Leader><leader>q :qa<cr>
 nmap <Leader>x :x<cr>
 nmap <Leader><leader>x :x<cr>
 "switch between current buffer and the one lastly used
-nmap <Leader>bb :b#<cr>
 " Open arguments files of current file
 "set <leader>p to toggle paste mode
 nmap <leader>p :set paste!<BAR>set paste?<CR>
