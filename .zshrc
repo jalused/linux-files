@@ -104,3 +104,4 @@ export ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=3'
 stty -ixon
 
 bindkey fj vi-cmd-mode
+export HISTSIZE=1000000
