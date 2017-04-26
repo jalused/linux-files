@@ -4,7 +4,7 @@
 
 let mapleader = ","
 
-set scrolloff=7
+" set scrolloff=7
 "显示行号
 set number
 "检测文件类型
