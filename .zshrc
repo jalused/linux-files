@@ -102,6 +102,7 @@ export PYTHONPATH
 export ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=3'
 # eval "$(fasd --init auto)"
 stty -ixon
-bindkey "^[OC" forward-word
 bindkey fj vi-cmd-mode
 export HISTSIZE=1000000
+bindkey "^[OC" forward-word
+bindkey "^f" vi-forward-word
