@@ -110,7 +110,7 @@ endfunc
 " auto reload vimrc when editing it
 autocmd! bufwritepost .vimrc source ~/.vimrc
 
-set clipboard=unnamed	" yank to the system register (*) by default
+set clipboard=unnamedplus	" yank to the system register (*) by default
 set wildchar=<TAB>	" start wild expansion in the command line using <TAB>
 set wildmenu            " wild char completion menu
 
