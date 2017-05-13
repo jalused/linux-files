@@ -3,6 +3,7 @@
 	email = jal@mail.ustc.edu.cn
 [core]
 	editor = vim
+	excludesfile = ~/.gitignore
 [alias]
 	; st = status -uno --column
   st = status

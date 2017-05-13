@@ -339,6 +339,7 @@ let g:tagbar_type_cpp = {
 Plugin 'Raimondi/delimitMate'
 Plugin 'scrooloose/nerdtree'
 let NERDTreeQuitOnOpen=1
+let NERDTreeIgnore=['\.pyc$', '\.png$']
 Plugin 'vim-syntastic/syntastic'
 let g:syntastic_cpp_compiler_options = '-std=c++11 -stdlib=libstdc++'
 let g:syntastic_check_on_open = 1
