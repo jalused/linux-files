@@ -478,3 +478,5 @@ Plugin 'henrik/vim-indexed-search'
 Plugin 'vim-scripts/highlight.vim'
 Plugin 'Jallet/ZoomSplit'
 nnoremap <leader>z :ToggleZoom<CR>
+Plugin 'vim-scripts/Marks-Browser'
+nmap <leader>m :MarksBrowser<cr>
