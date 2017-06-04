@@ -2,7 +2,7 @@
 "Author: Liang Jiang
 "Date: 2014-10-10
 
-let mapleader = ","
+let mapleader = "\<Space>"
 
 " set scrolloff=7
 "显示行号
@@ -50,27 +50,28 @@ func! SetTitle()
         call append(line(".")+9, "import argparse") 
         call append(line(".")+10, "import logging") 
         call append(line(".")+11, "handler = logging.StreamHandler()")
-        call append(line(".")+12, "fmt = '[%(levelname)s] %(asctime)s - %(filename)s - line %(lineno)s - %(message)s'")
-        call append(line(".")+13, "datefmt = '%Y-%m-%d %H:%M:%S'")
-        call append(line(".")+14, "formatter = logging.Formatter(fmt, datefmt)")
-        call append(line(".")+15, "handler.setFormatter(formatter)")
-        call append(line(".")+16, "logger = logging.getLogger()")
-        call append(line(".")+17, "logger.addHandler(handler)")
-        call append(line(".")+18, "logger.setLevel(logging.DEBUG)")
-        call append(line(".")+19, "")
+        call append(line(".")+12, "fmt = '[%(levelname)s] \\")
+        call append(line(".")+13, "%(asctime)s - %(filename)s - line %(lineno)s - %(message)s'")
+        call append(line(".")+14, "datefmt = '%Y-%m-%d %H:%M:%S'")
+        call append(line(".")+15, "formatter = logging.Formatter(fmt, datefmt)")
+        call append(line(".")+16, "handler.setFormatter(formatter)")
+        call append(line(".")+17, "logger = logging.getLogger()")
+        call append(line(".")+18, "logger.addHandler(handler)")
+        call append(line(".")+19, "logger.setLevel(logging.DEBUG)")
         call append(line(".")+20, "")
-        call append(line(".")+21, "def argparser():")
-        call append(line(".")+22, "    parser = argparse.ArgumentParser()")
-        call append(line(".")+23, "    return parser")
-        call append(line(".")+24, "")
-        call append(line(".")+25, "def main():")
-        call append(line(".")+26, "    parser = argparser()")
-        call append(line(".")+27, "    args = parser.parse_args()")
-        call append(line(".")+28, "")
+        call append(line(".")+21, "")
+        call append(line(".")+22, "def argparser():")
+        call append(line(".")+23, "    parser = argparse.ArgumentParser()")
+        call append(line(".")+24, "    return parser")
+        call append(line(".")+25, "")
+        call append(line(".")+26, "def main():")
+        call append(line(".")+27, "    parser = argparser()")
+        call append(line(".")+28, "    args = parser.parse_args()")
         call append(line(".")+29, "")
         call append(line(".")+30, "")
-        call append(line(".")+31, "if \"__main__\" == __name__:")
-        call append(line(".")+32, "    main()")
+        call append(line(".")+31, "")
+        call append(line(".")+32, "if \"__main__\" == __name__:")
+        call append(line(".")+33, "    main()")
         normal 31G
         
 
@@ -125,16 +126,8 @@ set smarttab		" insert tabs on the start of a line according to context
 "     :unlet! s:word 
 " endfun 
 
-" map <leader>r :call Replace()<CR>
 
-" open the error console
-" map <leader>cc :botright cope<CR> 
-" " move to next error
-" map <leader>] :cn<CR>
-" " move to the prev error
-" map <leader>[ :cp<CR>
-
-nmap <leader>l :set list!<CR>
+" nmap <Leader><Leader>l :set list!<CR>
 "禁止光标闪烁"
 set gcr=a:block-blinkon0
 "语法高亮
@@ -184,17 +177,19 @@ nmap n nzz
 nmap N Nzz
 " nmap G Gzz
 "设置快捷键
-nmap vo <C-o>
-nmap vi <C-i>
+nmap <leader>o <C-o>
+nmap <leader>i <C-i>
+nmap <leader>f <C-f>
+nmap <leader>b <C-b>
 nmap  J <C-w>j
 nmap  H <C-w>h
 nmap  K <C-w>k
 nmap  L <C-w>l
-nmap v= <C-w>+
-nmap v- <C-w>-
-nmap v0 <C-w>=
-nmap v] <C-w>>
-nmap v[ <C-w><
+nmap <leader>= <C-w>+
+nmap <leader>- <C-w>-
+nmap <leader>0 <C-w>=
+nmap <leader>] <C-w>>
+nmap <leader>[ <C-w><
 map  fj <Esc>
 omap fj <Esc>
 imap fj <Esc>
@@ -217,10 +212,13 @@ vnoremap # y?<C-r>0<CR>
 "properties of matlab"
 source $VIMRUNTIME/macros/matchit.vim
 nmap <Leader>w :w<cr>
-nmap <Space>w :w !sudo tee > /dev/null %<cr>
+nmap <Leader>W :wa<cr>
+" nmap <Space>w :w !sudo tee > /dev/null %<cr>
 nmap <Leader>q :q<cr>
-nmap <Leader><leader>q :qa<cr>
+nmap <Leader>Q :qa<cr>
+" nmap <Leader><leader>q :qa<cr>
 nmap <Leader>x :x<cr>
+nmap <Leader>X :xa<cr>
 nmap <Leader><leader>x :x<cr>
 "switch between current buffer and the one lastly used
 " Open arguments files of current file
@@ -229,8 +227,8 @@ nmap <leader>p :set paste!<BAR>set paste?<CR>
 
 set splitbelow 
 set splitright
-nmap <Space>v :vnew<CR>
-nmap <Space>s :new<CR>
+nmap <Leader><Leader>v :vnew<CR>
+nmap <Leader><Leader>s :new<CR>
 
 " "" 从第二层开始可视化显示缩进
 " let g:indent_guides_start_level=1
@@ -277,10 +275,10 @@ nnoremap <leader><leader>n :call GitGutterNextHunkWithPreview()<CR>
 nnoremap <leader><leader>p :call GitGutterPrevHunkWithPreview()<CR>
 " nnoremap <leader><leader>n :GitGutterNextHunk<CR>
 " nnoremap <leader><leader>p :GitGutterPrevHunk<CR>
-nnoremap <Space>hg :GitGutterLineHighlightsToggle<CR>
-nnoremap <Space>hs :GitGutterStageHunk<CR>
-nnoremap <Space>hu :GitGutterUndoHunk<CR>
-nnoremap <Space>hp :call GitGutterPreviewToggle()<CR>
+nnoremap <Leader>hg :GitGutterLineHighlightsToggle<CR>
+nnoremap <Leader>hs :GitGutterStageHunk<CR>
+nnoremap <Leader>hu :GitGutterUndoHunk<CR>
+nnoremap <Leader>hp :call GitGutterPreviewToggle()<CR>
 let g:gitgutter_max_signs = 10000
 " Plugin 'DfrankUtil'
 Plugin 'gmarik/vundle'
@@ -299,8 +297,8 @@ Plugin 'majutsushi/tagbar'
 "tagbar"
 let tagbar_left=0 
 nnoremap <Leader>t :TagbarToggle<CR> 
-noremap <Space>t :TagbarOpen j<CR>
 let g:tagbar_autofocus=1
+let g:tagbar_map_showproto=','
 let g:tagbar_autoclose=1
 let tagbar_width=40 
 let g:tagbar_compact=1
@@ -461,19 +459,19 @@ function! DeleteCurrentBuffer()
   :execute "bp"
   :execute ":bd ".l:id
 endfunction
-nnoremap <Space>h :bp<CR>
-nnoremap <Space>l :bn<CR>
-nnoremap <Space>q :call DeleteCurrentBuffer()<CR>
-nnoremap <Space>1 :b 1<CR>
-nnoremap <Space>2 :b 2<CR>
-nnoremap <Space>3 :b 3<CR>
-nnoremap <Space>4 :b 4<CR>
-nnoremap <Space>5 :b 5<CR>
-nnoremap <Space>6 :b 6<CR>
-nnoremap <Space>7 :b 7<CR>
-nnoremap <Space>8 :b 8<CR>
-nnoremap <Space>9 :b 9<CR>
-nnoremap <Space><Space> <C-^>
+nnoremap <Leader>h :bp<CR>
+nnoremap <Leader>l :bn<CR>
+" nnoremap <Leader>q :call DeleteCurrentBuffer()<CR>
+nnoremap <Leader>1 :b 1<CR>
+nnoremap <Leader>2 :b 2<CR>
+nnoremap <Leader>3 :b 3<CR>
+nnoremap <Leader>4 :b 4<CR>
+nnoremap <Leader>5 :b 5<CR>
+nnoremap <Leader>6 :b 6<CR>
+nnoremap <Leader>7 :b 7<CR>
+nnoremap <Leader>8 :b 8<CR>
+nnoremap <Leader>9 :b 9<CR>
+nnoremap ,, <C-^>
 Plugin 'henrik/vim-indexed-search'
 Plugin 'vim-scripts/highlight.vim'
 Plugin 'Jallet/ZoomSplit'
