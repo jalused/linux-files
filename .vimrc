@@ -120,13 +120,6 @@ set ignorecase		" ignore case when searching
 set smartcase		" ignore case if search pattern is all lowercase,case-sensitive otherwise
 set smarttab		" insert tabs on the start of a line according to context
 
-" fun! Replace() 
-"     let s:word = input("Replace " . expand('<cword>') . " with:") 
-"     :exe 'bufdo! %s/\<' . expand('<cword>') . '\>/' . s:word . '/ge' 
-"     :unlet! s:word 
-" endfun 
-
-
 " nmap <Leader><Leader>l :set list!<CR>
 "禁止光标闪烁"
 set gcr=a:block-blinkon0
@@ -198,6 +191,7 @@ nmap fj <Esc>
 map <leader>n :NERDTreeToggle<cr>
 map <Leader><leader>h <Plug>(easymotion-linebackward)
 map <Leader><leader>l <Plug>(easymotion-lineforward)
+nmap <leader><leader>/ :set list!<cr>
 
 "property of cscope
 set csprg=/usr/local/bin/cscope
@@ -227,26 +221,8 @@ nmap <leader>p :set paste!<BAR>set paste?<CR>
 
 set splitbelow 
 set splitright
-nmap <Leader><Leader>v :vnew<CR>
-nmap <Leader><Leader>s :new<CR>
-
-" "" 从第二层开始可视化显示缩进
-" let g:indent_guides_start_level=1
-" " 色块宽度
-" let g:indent_guides_guide_size=1
-" :nmap <silent> <Leader>d <Plug>IndentGuidesToggle
-" " 设置插件 indexer 调用 ctags 的参数
-" " " 默认 --c++-kinds=+p+l，重新设置为 --c++-kinds=+p+l+x+c+d+e+f+g+m+n+s+t+u+v
-" " " 默认 --fields=+iaS 不满足 YCM 要求，需改为 --fields=+iaSl
-
-" func! Mkdir(path)
-"   if !isdirectory(a:path)
-"     call mkdir(a:path, "p")
-"   endif
-" endfunc
-
-" autocmd! BufWritePre * :call Mkdir(expand("<afile>:p:h"))
-
+nmap <Leader>v :vnew<CR>
+nmap <Leader>s :new<CR>
 
 nnoremap <silent><Leader>g :Grep<CR>
 "auto-completion"
@@ -273,8 +249,6 @@ function! GitGutterPrevHunkWithPreview()
 endfunc
 nnoremap <leader><leader>n :call GitGutterNextHunkWithPreview()<CR>
 nnoremap <leader><leader>p :call GitGutterPrevHunkWithPreview()<CR>
-" nnoremap <leader><leader>n :GitGutterNextHunk<CR>
-" nnoremap <leader><leader>p :GitGutterPrevHunk<CR>
 nnoremap <Leader>hg :GitGutterLineHighlightsToggle<CR>
 nnoremap <Leader>hs :GitGutterStageHunk<CR>
 nnoremap <Leader>hu :GitGutterUndoHunk<CR>
@@ -286,7 +260,6 @@ Plugin 'gregsexton/gitv'
 Plugin 'kshenoy/vim-signature'
 
 Plugin 'Lokaltog/vim-easymotion'
-" Plugin 'Lokaltog/vim-powerline'
 set guifont=PowerlineSymbols\ for\ Powerline
 set nocompatible
 set backspace=2
@@ -420,12 +393,7 @@ Plugin 'ctrlpvim/ctrlp.vim'
 let g:ctrlp_map = '<leader>a'
 let g:ctrlp_cmd = 'CtrlP'
 
-" Plugin 'dyng/ctrlsf.vim'
-" vnoremap <leader>f y:CtrlSF <C-r>0<CR>
-" nnoremap <leader>f yiw:CtrlSF <C-r>0<CR>
-
 Plugin 'skywind3000/asyncrun.vim'  
-nnoremap <leader>s :AsyncStop<CR>
 
 Plugin 'dbsr/vimpy'
 nmap <leader>v :VimpyCheckLine<cr>
@@ -461,7 +429,6 @@ function! DeleteCurrentBuffer()
 endfunction
 nnoremap <Leader>h :bp<CR>
 nnoremap <Leader>l :bn<CR>
-" nnoremap <Leader>q :call DeleteCurrentBuffer()<CR>
 nnoremap <Leader>1 :b 1<CR>
 nnoremap <Leader>2 :b 2<CR>
 nnoremap <Leader>3 :b 3<CR>
