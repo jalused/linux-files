@@ -174,6 +174,8 @@ nmap <leader>o <C-o>
 nmap <leader>i <C-i>
 nmap <leader>f <C-f>
 nmap <leader>b <C-b>
+vmap <leader>f <C-f>
+vmap <leader>b <C-b>
 nmap  J <C-w>j
 nmap  H <C-w>h
 nmap  K <C-w>k
@@ -192,6 +194,9 @@ map <leader>n :NERDTreeToggle<cr>
 map <Leader><leader>h <Plug>(easymotion-linebackward)
 map <Leader><leader>l <Plug>(easymotion-lineforward)
 nmap <leader><leader>/ :set list!<cr>
+
+nnoremap <silent><leader>jp :call search('^'. matchstr(getline('.'), '\(^\s*\)') .'\%<' . line('.') . 'l\S', 'be')<CR>
+nnoremap <silent><leader>jn :call search('^'. matchstr(getline('.'), '\(^\s*\)') .'\%>' . line('.') . 'l\S', 'e')<CR>
 
 "property of cscope
 set csprg=/usr/local/bin/cscope
@@ -256,7 +261,7 @@ nnoremap <Leader>hp :call GitGutterPreviewToggle()<CR>
 let g:gitgutter_max_signs = 10000
 " Plugin 'DfrankUtil'
 Plugin 'gmarik/vundle'
-Plugin 'gregsexton/gitv'
+" Plugin 'gregsexton/gitv'
 Plugin 'kshenoy/vim-signature'
 
 Plugin 'Lokaltog/vim-easymotion'
@@ -338,7 +343,7 @@ endfunction
 Plugin 'tpope/vim-commentary'
 autocmd FileType python,shell set commentstring=#\ %s
 
-Plugin 'tpope/vim-fugitive'
+" Plugin 'tpope/vim-fugitive'
 
 Plugin 'Valloric/YouCompleteMe'
 let g:ycm_filetype_blacklist = {
@@ -371,6 +376,8 @@ let g:ycm_key_invoke_completion='<C-d>'
 " let g:ycm_min_num_of_chars_for_completion=1  
 "不查询ultisnips提供的代码模板补全，如果需要，设置成1即可  
 let g:ycm_use_ultisnips_completer=0
+let g:ycm_server_keep_logfiles = 1
+let g:ycm_server_log_level = 'debug'
 inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<CR>"
 " let g:ycm_min_num_of_chars_for_completion=5
 "let g:ycm_auto_trigger = 0
@@ -389,14 +396,14 @@ let g:multi_cursor_exit_from_visual_mode=0
 let g:multi_cursor_exit_from_insert_mode=0
 let g:multi_cursor_insert_maps = {'f' : 1}
 
-Plugin 'ctrlpvim/ctrlp.vim'
-let g:ctrlp_map = '<leader>a'
-let g:ctrlp_cmd = 'CtrlP'
+" Plugin 'ctrlpvim/ctrlp.vim'
+" let g:ctrlp_map = '<leader>a'
+" let g:ctrlp_cmd = 'CtrlP'
 
 Plugin 'skywind3000/asyncrun.vim'  
 
 Plugin 'dbsr/vimpy'
-nmap <leader>v :VimpyCheckLine<cr>
+nmap <leader><leader>v :VimpyCheckLine<cr>
 
 " Plugin 'fholgado/minibufexpl.vim'
 if has("autocmd")
@@ -440,8 +447,12 @@ nnoremap <Leader>8 :b 8<CR>
 nnoremap <Leader>9 :b 9<CR>
 nnoremap ,, <C-^>
 Plugin 'henrik/vim-indexed-search'
-Plugin 'vim-scripts/highlight.vim'
+" Plugin 'vim-scripts/highlight.vim'
 Plugin 'Jallet/ZoomSplit'
 nnoremap <leader>z :ToggleZoom<CR>
 Plugin 'vim-scripts/Marks-Browser'
 nmap <leader>m :MarksBrowser<cr>
+Plugin 'mileszs/ack.vim'
+if executable('ag')
+  let g:ackprg = 'ag --nogroup --nocolor --column'
+endif
