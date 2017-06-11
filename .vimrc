@@ -485,3 +485,7 @@ Plugin 'Jallet/ZoomSplit'
 nnoremap <leader>z :ToggleZoom<CR>
 Plugin 'vim-scripts/Marks-Browser'
 nmap <leader>m :MarksBrowser<cr>
+Plugin 'mileszs/ack.vim'
+if executable('ag')
+  let g:ackprg = 'ag --nogroup --nocolor --column'
+endif
