@@ -228,7 +228,7 @@ nmap <Leader><leader>x :x<cr>
 "switch between current buffer and the one lastly used
 " Open arguments files of current file
 "set <leader>p to toggle paste mode
-nmap <leader>p :set paste!<BAR>set paste?<CR>
+nmap <leader>] :set paste!<BAR>set paste?<CR>
 
 set splitbelow 
 set splitright
@@ -423,13 +423,21 @@ let g:multi_cursor_exit_from_visual_mode=0
 let g:multi_cursor_exit_from_insert_mode=0
 let g:multi_cursor_insert_maps = {'f' : 1}
 
-" Plugin 'ctrlpvim/ctrlp.vim'
-" let g:ctrlp_map = '<leader>a'
-" let g:ctrlp_cmd = 'CtrlP'
-
-" Plugin 'dyng/ctrlsf.vim'
-" vnoremap <leader>f y:CtrlSF <C-r>0<CR>
-" nnoremap <leader>f yiw:CtrlSF <C-r>0<CR>
+Plugin 'ctrlpvim/ctrlp.vim'
+let g:ctrlp_map = '<leader>p'
+if executable('ag')
+  set grepprg=ag\ --nogroup\ --nocolor
+  let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
+endif
+let g:ctrlp_use_caching = 1
+map <leader>cf :CtrlPMRU<CR>
+let g:ctrlp_custom_ignore = {
+    \ 'dir':  '\v[\/]\.(git|hg|svn|rvm)$',
+    \ 'file': '\v\.(exe|so|dll|zip|tar|tar.gz|pyc)$',
+    \ }
+let g:ctrlp_working_path_mode='ra'
+let g:ctrlp_by_filename=1
+let g:ctrlp_regexp=1
 
 Plugin 'skywind3000/asyncrun.vim'  
 nnoremap <leader>s :AsyncStop<CR>
@@ -485,7 +493,7 @@ Plugin 'Jallet/ZoomSplit'
 nnoremap <leader>z :ToggleZoom<CR>
 Plugin 'vim-scripts/Marks-Browser'
 nmap <leader>m :MarksBrowser<cr>
-Plugin 'mileszs/ack.vim'
-if executable('ag')
-  let g:ackprg = 'ag --nogroup --nocolor --column'
-endif
+Plugin 'dyng/ctrlsf.vim'
+vnoremap <leader>cs y:CtrlSF "<C-r>0"<CR>
+nnoremap <leader>cs yiw:CtrlSF <C-r>0<CR>
+let g:ctrlsf_ackprg='ag'
