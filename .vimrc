@@ -120,13 +120,6 @@ set ignorecase		" ignore case when searching
 set smartcase		" ignore case if search pattern is all lowercase,case-sensitive otherwise
 set smarttab		" insert tabs on the start of a line according to context
 
-" fun! Replace() 
-"     let s:word = input("Replace " . expand('<cword>') . " with:") 
-"     :exe 'bufdo! %s/\<' . expand('<cword>') . '\>/' . s:word . '/ge' 
-"     :unlet! s:word 
-" endfun 
-
-
 " nmap <Leader><Leader>l :set list!<CR>
 "禁止光标闪烁"
 set gcr=a:block-blinkon0
@@ -200,6 +193,7 @@ nmap fj <Esc>
 map <leader>n :NERDTreeToggle<cr>
 map <Leader><leader>h <Plug>(easymotion-linebackward)
 map <Leader><leader>l <Plug>(easymotion-lineforward)
+nmap <leader><leader>/ :set list!<cr>
 
 nnoremap <silent><leader>jp :call search('^'. matchstr(getline('.'), '\(^\s*\)') .'\%<' . line('.') . 'l\S', 'be')<CR>
 nnoremap <silent><leader>jn :call search('^'. matchstr(getline('.'), '\(^\s*\)') .'\%>' . line('.') . 'l\S', 'e')<CR>
@@ -232,26 +226,8 @@ nmap <leader>] :set paste!<BAR>set paste?<CR>
 
 set splitbelow 
 set splitright
-nmap <Leader><Leader>v :vnew<CR>
-nmap <Leader><Leader>s :new<CR>
-
-" "" 从第二层开始可视化显示缩进
-" let g:indent_guides_start_level=1
-" " 色块宽度
-" let g:indent_guides_guide_size=1
-" :nmap <silent> <Leader>d <Plug>IndentGuidesToggle
-" " 设置插件 indexer 调用 ctags 的参数
-" " " 默认 --c++-kinds=+p+l，重新设置为 --c++-kinds=+p+l+x+c+d+e+f+g+m+n+s+t+u+v
-" " " 默认 --fields=+iaS 不满足 YCM 要求，需改为 --fields=+iaSl
-
-" func! Mkdir(path)
-"   if !isdirectory(a:path)
-"     call mkdir(a:path, "p")
-"   endif
-" endfunc
-
-" autocmd! BufWritePre * :call Mkdir(expand("<afile>:p:h"))
-
+nmap <Leader>v :vnew<CR>
+nmap <Leader>s :new<CR>
 
 nnoremap <silent><Leader>g :Grep<CR>
 "auto-completion"
@@ -278,8 +254,6 @@ function! GitGutterPrevHunkWithPreview()
 endfunc
 nnoremap <leader><leader>n :call GitGutterNextHunkWithPreview()<CR>
 nnoremap <leader><leader>p :call GitGutterPrevHunkWithPreview()<CR>
-" nnoremap <leader><leader>n :GitGutterNextHunk<CR>
-" nnoremap <leader><leader>p :GitGutterPrevHunk<CR>
 nnoremap <Leader>hg :GitGutterLineHighlightsToggle<CR>
 nnoremap <Leader>hs :GitGutterStageHunk<CR>
 nnoremap <Leader>hu :GitGutterUndoHunk<CR>
@@ -291,7 +265,6 @@ Plugin 'gmarik/vundle'
 Plugin 'kshenoy/vim-signature'
 
 Plugin 'Lokaltog/vim-easymotion'
-" Plugin 'Lokaltog/vim-powerline'
 set guifont=PowerlineSymbols\ for\ Powerline
 set nocompatible
 set backspace=2
@@ -429,26 +402,20 @@ if executable('ag')
   set grepprg=ag\ --nogroup\ --nocolor
   let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
 endif
-let g:ctrlp_use_caching = 1
+let g:ctrlp_use_caching = 0
 map <leader>cf :CtrlPMRU<CR>
 let g:ctrlp_custom_ignore = {
     \ 'dir':  '\v[\/]\.(git|hg|svn|rvm)$',
     \ 'file': '\v\.(exe|so|dll|zip|tar|tar.gz|pyc)$',
     \ }
-let g:ctrlp_working_path_mode='ra'
+let g:ctrlp_working_path_mode='rwa'
 let g:ctrlp_by_filename=1
 let g:ctrlp_regexp=1
 
 Plugin 'skywind3000/asyncrun.vim'  
-nnoremap <leader>s :AsyncStop<CR>
 
 Plugin 'dbsr/vimpy'
 nmap <leader><leader>v :VimpyCheckLine<cr>
-
-" Plugin 'fholgado/minibufexpl.vim'
-if has("autocmd")
-  au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
-endif
 
 Plugin 'Jallet/quickrun.vim'
 
@@ -476,7 +443,6 @@ function! DeleteCurrentBuffer()
 endfunction
 nnoremap <Leader>h :bp<CR>
 nnoremap <Leader>l :bn<CR>
-" nnoremap <Leader>q :call DeleteCurrentBuffer()<CR>
 nnoremap <Leader>1 :b 1<CR>
 nnoremap <Leader>2 :b 2<CR>
 nnoremap <Leader>3 :b 3<CR>
@@ -495,5 +461,25 @@ Plugin 'vim-scripts/Marks-Browser'
 nmap <leader>m :MarksBrowser<cr>
 Plugin 'dyng/ctrlsf.vim'
 vnoremap <leader>cs y:CtrlSF "<C-r>0"<CR>
-nnoremap <leader>cs yiw:CtrlSF <C-r>0<CR>
+nmap <leader>cs <Plug>CtrlSFCCwordExec
 let g:ctrlsf_ackprg='ag'
+
+Plugin 'SirVer/ultisnips'
+let g:UltiSnipsExpandTrigger=",<Tab>"
+let g:UltiSnipsJumpForwardTrigger=",f"
+let g:UltiSnipsJumpBackwardTrigger=",b"
+let g:UltiSnipsListSnippets=",,"
+Plugin 'honza/vim-snippets'
+func! OpenSnippets()
+  let default_snippets_dir=$HOME."/.vim/bundle/vim-snippets/snippets/"
+  let custom_snippets_dir=$HOME."/.vim/UltiSnips/"
+  let snippet_file=&filetype.".snippets"
+  let default_snippets_file=l:default_snippets_dir."".l:snippet_file
+  let custom_snippets_file=l:custom_snippets_dir."".l:snippet_file
+  echo l:default_snippets_file
+  if filereadable(l:default_snippets_file) == 1
+    :execute "vs | view".l:default_snippets_file
+  endif
+  :execute "vs ".l:custom_snippets_file
+endfunc
+nmap <leader><leader>u :call OpenSnippets()<CR>
