@@ -402,13 +402,13 @@ if executable('ag')
   set grepprg=ag\ --nogroup\ --nocolor
   let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
 endif
-let g:ctrlp_use_caching = 1
+let g:ctrlp_use_caching = 0
 map <leader>cf :CtrlPMRU<CR>
 let g:ctrlp_custom_ignore = {
     \ 'dir':  '\v[\/]\.(git|hg|svn|rvm)$',
     \ 'file': '\v\.(exe|so|dll|zip|tar|tar.gz|pyc)$',
     \ }
-let g:ctrlp_working_path_mode='ra'
+let g:ctrlp_working_path_mode='rwa'
 let g:ctrlp_by_filename=1
 let g:ctrlp_regexp=1
 
@@ -416,11 +416,6 @@ Plugin 'skywind3000/asyncrun.vim'
 
 Plugin 'dbsr/vimpy'
 nmap <leader><leader>v :VimpyCheckLine<cr>
-
-" Plugin 'fholgado/minibufexpl.vim'
-if has("autocmd")
-  au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
-endif
 
 Plugin 'Jallet/quickrun.vim'
 
@@ -466,5 +461,25 @@ Plugin 'vim-scripts/Marks-Browser'
 nmap <leader>m :MarksBrowser<cr>
 Plugin 'dyng/ctrlsf.vim'
 vnoremap <leader>cs y:CtrlSF "<C-r>0"<CR>
-nnoremap <leader>cs yiw:CtrlSF <C-r>0<CR>
+nmap <leader>cs <Plug>CtrlSFCCwordExec
 let g:ctrlsf_ackprg='ag'
+
+Plugin 'SirVer/ultisnips'
+let g:UltiSnipsExpandTrigger=",<Tab>"
+let g:UltiSnipsJumpForwardTrigger=",f"
+let g:UltiSnipsJumpBackwardTrigger=",b"
+let g:UltiSnipsListSnippets=",,"
+Plugin 'honza/vim-snippets'
+func! OpenSnippets()
+  let default_snippets_dir=$HOME."/.vim/bundle/vim-snippets/snippets/"
+  let custom_snippets_dir=$HOME."/.vim/UltiSnips/"
+  let snippet_file=&filetype.".snippets"
+  let default_snippets_file=l:default_snippets_dir."".l:snippet_file
+  let custom_snippets_file=l:custom_snippets_dir."".l:snippet_file
+  echo l:default_snippets_file
+  if filereadable(l:default_snippets_file) == 1
+    :execute "vs | view".l:default_snippets_file
+  endif
+  :execute "vs ".l:custom_snippets_file
+endfunc
+nmap <leader><leader>u :call OpenSnippets()<CR>
