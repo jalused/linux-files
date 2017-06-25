@@ -210,17 +210,13 @@ vnoremap # y?<C-r>0<CR>
 
 "properties of matlab"
 source $VIMRUNTIME/macros/matchit.vim
-nmap <Leader>w :w<cr>
-nmap <Leader>W :wa<cr>
-" nmap <Space>w :w !sudo tee > /dev/null %<cr>
+nmap <Leader>w :wa<cr>
+nmap <Leader>W :w !sudo tee > /dev/null %<cr>
 nmap <Leader>q :q<cr>
 nmap <Leader>Q :qa<cr>
 " nmap <Leader><leader>q :qa<cr>
 nmap <Leader>x :x<cr>
 nmap <Leader>X :xa<cr>
-nmap <Leader><leader>x :x<cr>
-"switch between current buffer and the one lastly used
-" Open arguments files of current file
 "set <leader>p to toggle paste mode
 nmap <leader>] :set paste!<BAR>set paste?<CR>
 
@@ -229,7 +225,6 @@ set splitright
 nmap <Leader>v :vnew<CR>
 nmap <Leader>s :new<CR>
 
-nnoremap <silent><Leader>g :Grep<CR>
 "auto-completion"
 set completeopt=longest,menu
 set rtp+=~/.vim/bundle/vundle/
@@ -411,6 +406,7 @@ let g:ctrlp_custom_ignore = {
 let g:ctrlp_working_path_mode='rwa'
 let g:ctrlp_by_filename=1
 let g:ctrlp_regexp=1
+let g:ctrlp_match_window = 'bottom,order:ttb,min:1,max:20'
 
 Plugin 'skywind3000/asyncrun.vim'  
 
@@ -469,6 +465,7 @@ let g:UltiSnipsExpandTrigger=",<Tab>"
 let g:UltiSnipsJumpForwardTrigger=",f"
 let g:UltiSnipsJumpBackwardTrigger=",b"
 let g:UltiSnipsListSnippets=",,"
+
 Plugin 'honza/vim-snippets'
 func! OpenSnippets()
   let default_snippets_dir=$HOME."/.vim/bundle/vim-snippets/snippets/"
@@ -483,3 +480,7 @@ func! OpenSnippets()
   :execute "vs ".l:custom_snippets_file
 endfunc
 nmap <leader><leader>u :call OpenSnippets()<CR>
+
+Plugin 'AndrewRadev/linediff.vim'
+vmap <leader>ld :Linediff<CR>
+nmap <leader>R :LinediffReset<CR>
