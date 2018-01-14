@@ -337,6 +337,7 @@ endfunction
 
 Plugin 'tpope/vim-commentary'
 autocmd FileType python,shell set commentstring=#\ %s
+autocmd FileType vim set commentstring=\"\ %s
 
 " Plugin 'tpope/vim-fugitive'
 
