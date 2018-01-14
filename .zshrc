@@ -93,6 +93,7 @@ PATH=/home/liangjiang/software/bin:/home/liangjiang/code/util/bin:/home/liangjia
 alias rz='rz -abe'
 alias sz='sz -abe'
 alias vi='vim'
+alias vim='vim -O'
 PATH=/home/liangjiang/code/scripts:$PATH
 export PATH
 CAFFE_ROOT=/home/liangjiang/code/caffe/
@@ -110,3 +111,6 @@ bindkey fj vi-cmd-mode
 export HISTSIZE=1000000
 bindkey "^[OC" forward-word
 bindkey "^f" vi-forward-word
+export PATH=/usr/local/cuda/bin:$PATH
+export LD_LIBRARY_PATH=/home/liangjiang/local/lib64:/usr/local/cuda/lib64:$LD_LIBRARY_PATH
+export LIBRARY_PATH=/home/liangjiang/local/include:$LIBRARY_PATH
