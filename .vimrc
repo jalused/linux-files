@@ -10,7 +10,7 @@ set number
 "检测文件类型
 filetype on
 filetype indent on
-filetype plugin on
+" filetype plugin on
 "记录历史的行数
 set history=1000
 "背景颜色为黑色
@@ -176,10 +176,10 @@ nmap <leader>f <C-f>
 nmap <leader>b <C-b>
 vmap <leader>f <C-f>
 vmap <leader>b <C-b>
-nmap  J <C-w>j
-nmap  H <C-w>h
-nmap  K <C-w>k
-nmap  L <C-w>l
+nmap  <Down> <C-w>j
+nmap  <Left> <C-w>h
+nmap  <Up> <C-w>k
+nmap  <Right> <C-w>l
 nmap <leader>= <C-w>+
 nmap <leader>- <C-w>-
 nmap <leader>0 <C-w>=
