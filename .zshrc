@@ -104,7 +104,6 @@ export PYTHONPATH=/home/liangjiang/anaconda2/lib/python2.7/site-packages:$PYTHON
 export ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=3'
 # eval "$(fasd --init auto)"
 stty -ixon
-source /home/liangjiang/code/torch/install/bin/torch-activate
 # added by Anaconda2 4.2.0 installer
 export PATH="/home/liangjiang/anaconda2/bin:/home/liangjiang/software/pycharm-community-2016.3.1/bin:$PATH"
 bindkey fj vi-cmd-mode
