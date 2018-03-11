@@ -133,7 +133,7 @@ set autoindent
 set cindent
 set smartindent
 "tab键为4个空格，行之间交错时使用4个空格
-set expandtab 
+"set expandtab 
 set tabstop=2
 set shiftwidth=2
 set softtabstop=2
